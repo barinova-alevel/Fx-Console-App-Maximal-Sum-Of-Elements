@@ -1,31 +1,31 @@
-﻿using System.Text;
-using System;
-using System.IO;
-public class Program
+﻿public class Program
 {
-    //Program should find the maximum sum of elements in line from the list of lines.
-
-    //Program will take path to file as input (user can enter path in console application or send as command line interface argument if they exist).
-
-    //Each line of the file contains a number set (number separator is comma, decimal separator is point).
-
-    //Result should be the number of the line with a maximum sum of elements in line.
-
-    //If line contains non numeric elements - line marked as broken.
-
-    //As a separate list, write a number of lines with non numeric elements (“wrong elements”).
-
-    //https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=net-6.0
-
-    //https://docs.microsoft.com/en-us/dotnet/api/system.globalization.numberformatinfo?view=net-6.0
-
-    // https://docs.microsoft.com/en-us/dotnet/standard/io/
-
     static void Main(string[] args)
     {
-        string filePath = GetPath();
-        Console.WriteLine(LineCounter(filePath));
-        ReadLines(filePath);
+        //string filePathArg = @"C:\Temp\test.txt";
+        string filePathArg = args.FirstOrDefault(arg => arg.StartsWith("--path="));
+
+        if (string.IsNullOrEmpty(filePathArg))
+        {
+            //add logger instead of console here
+            //provide a possibility to get a path again
+            Console.WriteLine("Usage: MyProgram.exe --path=\"C:\\path\\to\\your\\file.txt\"");
+            return;
+        }
+
+        string filePath = Path.GetFileName(filePathArg);
+
+        if (File.Exists(filePath))
+        {
+            Console.WriteLine($"The file at '{filePath}' exists.");
+        }
+        else
+        {
+            Console.WriteLine($"The file at '{filePath}' does not exist.");
+        }
+        //string filePathFromConsole = GetPath();
+        //Console.WriteLine(LineCounter(filePathFromConsole));
+        //ReadLines(filePathFromConsole);
         Console.ReadKey();
     }
 
@@ -33,24 +33,19 @@ public class Program
     {
         if (File.Exists(filePath))
         {
-            // Read all lines from the file
             string[] lines = File.ReadAllLines(filePath);
             int maxSum = int.MinValue;
             string lineWithMaxSum = "";
-            int lineNumber = 0; // Optional: Track the line number
+            int lineNumber = 0;
             int maxSumLineNumber = 0;
             bool isLineBroken = false;
 
-            // Process each line
             foreach (string line in lines)
             {
                 lineNumber++;
-                // Split the line into parts using space as a separator
                 string[] parts = line.Split(',');
 
-                // Convert the parts to integers and sum them
                 int sum = 0;
-                //isLineBroken = false;
 
                 foreach (string part in parts)
                 {
@@ -58,51 +53,48 @@ public class Program
                     {
                         isLineBroken = true;
                         break;
-
                     }
                     sum += number;
                 }
 
                 if (isLineBroken)
                 {
-                    // Handle the broken line case
+                    //logger instead of console
                     Console.WriteLine($"Line {lineNumber} is broken (contains non-numeric elements).");
                 }
                 else
                 {
-
-                    // Check if this line has the maximum sum
                     if (sum > maxSum)
                     {
                         maxSum = sum;
                         lineWithMaxSum = line;
-                        maxSumLineNumber = lineNumber; // Update line number with max sum
+                        maxSumLineNumber = lineNumber;
                     }
                 }
             }
             if (!string.IsNullOrEmpty(lineWithMaxSum))
             {
+                //logger
                 Console.WriteLine($"Line with the biggest sum: {lineWithMaxSum}");
                 Console.WriteLine($"Biggest sum: {maxSum}");
                 Console.WriteLine($"Line number with biggest sum: {maxSumLineNumber}");
             }
             else
             {
+                //logger
                 Console.WriteLine("No valid lines with sums were found.");
             }
         }
 
         else
         {
+            //logger
             Console.WriteLine("File does not exist.");
         }
     }
 
-
     static public int LineCounter(string filePath)
     {
-
-
         int numberOfLines = 0;
 
         try
@@ -114,10 +106,10 @@ public class Program
                     numberOfLines++;
                 }
             }
-
         }
         catch (Exception ex)
         {
+            //logger
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
         return numberOfLines;
@@ -125,16 +117,9 @@ public class Program
 
     static string GetPath()
     {
+        //logger
         Console.WriteLine("Enter Path");
         string filePath = @"" + Console.ReadLine();
         return filePath;
     }
 }
-    //Is empty counts as null?
-    //What is the line==null  
-    //How to prevent entering wrong format path?
-    //What is the file extension - txt, xml, xls..? - any
-    //txt reads perfectly, xlsx problems encoding - think of cultural info? 
-    // What does it mean? send /path/ as command line interface argument if they exist
-    //command line interface argument - мається на увазі, що застосунок може бути викликаний з консолі разом з параметром. Наприклад, maxsum.exe --path=folder/file.ext
-    //Ось тут базова інформація про аргументи.Можеш сама парсити аргументи або можеш знайти бібілотеку, яка це вміє робити.
