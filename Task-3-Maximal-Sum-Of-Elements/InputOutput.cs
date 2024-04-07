@@ -1,40 +1,45 @@
 ﻿
+using Serilog;
+
 namespace Task_3_Maximal_Sum_Of_Elements
 {
     internal class InputOutput : IInputOutput
     {
         public string GetPath(string filePathArg)
         {
-            
-            if (string.IsNullOrEmpty(filePathArg))
+            try
             {
-                //add logger instead of console here
-                //provide a possibility to get a path again
-                Console.WriteLine($"{filePathArg} null or empty ");
+                Log.Debug("Getting file path from {} ", filePathArg);
+
+                if (string.IsNullOrEmpty(filePathArg))
+                {
+                    Log.Debug("filePathArg is null or empty");
+                    //provide a possibility to get a path again
+                }
+                else
+                {
+                    string prefix = "--path=";
+                    int startIndex = filePathArg.IndexOf(prefix) + prefix.Length;
+                    string filePath = filePathArg.Substring(startIndex).Trim('"');
+                    Log.Debug("File path: {}", filePath);
+                    return filePath;
+               }
+                //not correct
+                return "";
             }
-
-            //string filePath = Path.GetFileName(filePathArg);
-
-            //if (File.Exists(filePathArg))
-            //{
-            //    Console.WriteLine($"The file {filePath} exists.");
-            //}
-            //else
-            //{
-            //    Console.WriteLine($"The file {filePath} in {filePathArg} does not exist.");
-            //}
-            string prefix = "--path=";
-            int startIndex = filePathArg.IndexOf(prefix) + prefix.Length;
-            string filePath = filePathArg.Substring(startIndex).Trim('"');
-
-            return filePath;
+            catch (Exception e) {
+                Log.Error("Could not get file path: {}", e.Message, e);
+                //not correct
+                return "1";
+            }
+            
         }
 
-        public string GetPath()
-        {
-            Console.WriteLine("Enter Path");
-            string filePath = @"" + Console.ReadLine();
-            return filePath;
+            public string GetPath()
+            {
+                Console.WriteLine("Enter Path");
+                string filePath = @"" + Console.ReadLine();
+                return filePath;
+            }
         }
     }
-}

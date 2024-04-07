@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MaxSum": {
+      "commandName": "Project",
+      "commandLineArgs": "--path=\"C:\\testProjProperty.txt\""
+    }
+  }
+}

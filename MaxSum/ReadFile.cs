@@ -1,68 +1,77 @@
-﻿namespace MaxSum
+﻿using System.Linq.Expressions;
+using Serilog;
+
+namespace MaxSum
 {
     public class ReadFile : IReadFile
     {
         public void ReadLines(string filePath)
         {
-            if (File.Exists(filePath))
+            try
             {
-                string[] lines = File.ReadAllLines(filePath);
-                int maxSum = int.MinValue;
-                string lineWithMaxSum = "";
-                int lineNumber = 0;
-                int maxSumLineNumber = 0;
-                bool isLineBroken = false;
-
-                foreach (string line in lines)
+                Log.Debug("Reading the lines in {}", filePath);
+                if (File.Exists(filePath))
                 {
-                    lineNumber++;
-                    string[] parts = line.Split(',');
+                    string[] lines = File.ReadAllLines(filePath);
+                    int maxSum = int.MinValue;
+                    string lineWithMaxSum = "";
+                    int lineNumber = 0;
+                    int maxSumLineNumber = 0;
+                    bool isLineBroken = false;
 
-                    int sum = 0;
-
-                    foreach (string part in parts)
+                    foreach (string line in lines)
                     {
-                        if (!int.TryParse(part, out int number))
+                        lineNumber++;
+                        string[] parts = line.Split(',');
+
+                        int sum = 0;
+
+                        foreach (string part in parts)
                         {
-                            isLineBroken = true;
-                            break;
+                            if (!int.TryParse(part, out int number))
+                            {
+                                isLineBroken = true;
+                                Log.Debug("Line {} is broken (contains non-numeric elements).", lineNumber);
+                                break;
+                            }
+                            sum += number;
                         }
-                        sum += number;
+
+                        if (isLineBroken)
+                        {
+                            Log.Debug($"Line {lineNumber} is broken (contains non-numeric elements).");
+                        }
+                        else
+                        {
+                            if (sum > maxSum)
+                            {
+                                maxSum = sum;
+                                lineWithMaxSum = line;
+                                maxSumLineNumber = lineNumber;
+                            }
+                        }
                     }
 
-                    if (isLineBroken)
+                    if (!string.IsNullOrEmpty(lineWithMaxSum))
                     {
-                        //logger instead of console
-                        Console.WriteLine($"Line {lineNumber} is broken (contains non-numeric elements).");
+                        Log.Information($"Line with the biggest sum: {lineWithMaxSum}");
+                        Log.Information($"Biggest sum: {maxSum}");
+                        Log.Information($"Line number with biggest sum: {maxSumLineNumber}");
                     }
                     else
                     {
-                        if (sum > maxSum)
-                        {
-                            maxSum = sum;
-                            lineWithMaxSum = line;
-                            maxSumLineNumber = lineNumber;
-                        }
+                        Log.Information($"No valid lines with sums were found.");
                     }
                 }
-                if (!string.IsNullOrEmpty(lineWithMaxSum))
-                {
-                    //logger
-                    Console.WriteLine($"Line with the biggest sum: {lineWithMaxSum}");
-                    Console.WriteLine($"Biggest sum: {maxSum}");
-                    Console.WriteLine($"Line number with biggest sum: {maxSumLineNumber}");
-                }
+
                 else
                 {
-                    //logger
-                    Console.WriteLine("No valid lines with sums were found.");
+                    Log.Information("File does not exist.");
                 }
             }
-
-            else
+            catch (Exception e)
             {
-                //logger
-                Console.WriteLine("File does not exist.");
+                Log.Error("Error occurred: {}", e.Message, e);
             }
         }
 
@@ -82,8 +91,7 @@
             }
             catch (Exception ex)
             {
-                //logger
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                Log.Debug($"An error occurred: {ex.Message}");
             }
             return numberOfLines;
         }
