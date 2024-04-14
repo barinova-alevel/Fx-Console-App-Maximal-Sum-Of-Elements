@@ -22,7 +22,7 @@ namespace MaxSum
                     foreach (string line in lines)
                     {
                         lineNumber++;
-                        
+
                         string[] parts = line.Split(',');
                         Log.Debug("Line {lineNumber}: {parts}", lineNumber, parts);
                         int sum = 0;
@@ -70,9 +70,11 @@ namespace MaxSum
                     Log.Information("File does not exist.");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Log.Error("Error occurred: {}", e.Message, e);
+                var message = ex.GetType().FullName;
+                var messageDetails = ex.Message;
+                Log.Error("Error occurred: {message} \n{messageDetails} \n{ex}", message, messageDetails, ex);
             }
         }
 
