@@ -9,7 +9,7 @@ namespace MaxSum
         {
             try
             {
-                Log.Debug("Reading the lines in {}", filePath);
+                Log.Information("Reading the lines in {filePath}", filePath);
                 if (File.Exists(filePath))
                 {
                     string[] lines = File.ReadAllLines(filePath);
@@ -22,8 +22,9 @@ namespace MaxSum
                     foreach (string line in lines)
                     {
                         lineNumber++;
+                        
                         string[] parts = line.Split(',');
-
+                        Log.Debug("Line {lineNumber}: {parts}", lineNumber, parts);
                         int sum = 0;
 
                         foreach (string part in parts)
@@ -31,7 +32,7 @@ namespace MaxSum
                             if (!int.TryParse(part, out int number))
                             {
                                 isLineBroken = true;
-                                Log.Debug("Line {} is broken (contains non-numeric elements).", lineNumber);
+                                //Log.Debug("Line {lineNumber} is broken (contains non-numeric elements).", lineNumber);
                                 break;
                             }
                             sum += number;
@@ -39,7 +40,7 @@ namespace MaxSum
 
                         if (isLineBroken)
                         {
-                            Log.Debug($"Line {lineNumber} is broken (contains non-numeric elements).");
+                            Log.Debug("Line {lineNumber} is broken (contains non-numeric elements).", lineNumber);
                         }
                         else
                         {

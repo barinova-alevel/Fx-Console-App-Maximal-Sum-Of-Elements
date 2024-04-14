@@ -1,4 +1,5 @@
 ﻿using MaxSum;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using Task_3_Maximal_Sum_Of_Elements;
 
@@ -6,10 +7,15 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        LoggerConfiguration log = new LoggerConfiguration();
-        log.WriteTo.Console()
-            .WriteTo.File("maxsum.txt", outputTemplate: "{Timestamp:yy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}", rollingInterval: RollingInterval.Day)
+        IConfigurationRoot builder = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json")
+            .Build();
+            
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(builder)
             .CreateLogger();
+        Log.Logger.Information("start");
+
 
         InputOutput output = new InputOutput();
         ReadFile targetFile = new ReadFile();
@@ -17,6 +23,6 @@ public class Program
         string filePath = output.GetPath(filePathArg);
         //string filePath = output.GetPath();
         targetFile.ReadLines(filePath);
-        //Console.ReadKey();
+        Console.ReadKey();
     }
 }
