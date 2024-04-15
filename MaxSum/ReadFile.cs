@@ -9,9 +9,9 @@ namespace MaxSum
         {
             try
             {
-                Log.Information("Reading the lines in {filePath}", filePath);
                 if (File.Exists(filePath))
                 {
+                    Log.Information("Reading the lines in {filePath}", filePath);
                     string[] lines = File.ReadAllLines(filePath);
                     int maxSum = int.MinValue;
                     string lineWithMaxSum = "";

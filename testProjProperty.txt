@@ -1,0 +1,5 @@
+1,1,1,1
+4,6,0,7,11
+a,d,2.4
+5,f,5,777
+C:\Users\oksan\source\repos\Task-3-Maximal-Sum-Of-Elements\testProjProperty.txt
