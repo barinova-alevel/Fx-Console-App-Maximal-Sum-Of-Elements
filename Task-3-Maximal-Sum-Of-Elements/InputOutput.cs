@@ -9,14 +9,15 @@ namespace Task_3_Maximal_Sum_Of_Elements
             string filePath;
             try
             {
-                Log.Debug("Getting file path from {filePathArg} ", filePathArg);
+                Log.Debug("Getting file path from path argument {filePathArg}: ", filePathArg);
 
                 if (string.IsNullOrEmpty(filePathArg))
                 {
-                    Log.Debug("filePathArg is null or empty, enter the file path manually:");
+                    Log.Information("file path argument is null or empty, please enter file path manually:");
                     string manualFilePath = GetPathFromConsole();
-                    filePath= manualFilePath;
+                    return manualFilePath;
                 }
+
                 else
                 {
                     string prefix = "--path=";
@@ -25,7 +26,6 @@ namespace Task_3_Maximal_Sum_Of_Elements
                     Log.Debug("File path: {filePath}", filePath);
                     return filePath;
                 }
-                return filePath;
             }
             catch (Exception e)
             {
@@ -33,14 +33,12 @@ namespace Task_3_Maximal_Sum_Of_Elements
                 //not correct
                 return "1";
             }
-
         }
 
-        public string GetPathFromConsole()
+        private string GetPathFromConsole()
         {
             string filePath = @"" + Console.ReadLine();
             Log.Debug("Console file path: {filePath}", filePath);
-            //add check path format
             return filePath;
         }
     }
