@@ -2,7 +2,7 @@
 
 namespace Task_3_Maximal_Sum_Of_Elements
 {
-    internal class InputOutput : IInputOutput
+    public class InputOutput : IInputOutput
     {
         public string GetPath(string filePathArg)
         {
@@ -30,8 +30,7 @@ namespace Task_3_Maximal_Sum_Of_Elements
             catch (Exception e)
             {
                 Log.Error("Could not get file path: {}", e.Message, e);
-                //not correct
-                return "1";
+                throw;
             }
         }
 

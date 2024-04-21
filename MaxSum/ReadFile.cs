@@ -13,26 +13,26 @@ namespace MaxSum
                 {
                     Log.Information("Reading the lines in {filePath}", filePath);
                     string[] lines = File.ReadAllLines(filePath);
-                    int maxSum = int.MinValue;
+                    double maxSum = double.MinValue;
                     string lineWithMaxSum = "";
                     int lineNumber = 0;
                     int maxSumLineNumber = 0;
-                    bool isLineBroken = false;
+                    
 
                     foreach (string line in lines)
                     {
+                        bool isLineBroken = false;
                         lineNumber++;
 
                         string[] parts = line.Split(',');
                         Log.Debug("Line {lineNumber}: {parts}", lineNumber, parts);
-                        int sum = 0;
+                        double sum = 0;
 
                         foreach (string part in parts)
                         {
-                            if (!int.TryParse(part, out int number))
+                            if (!double.TryParse(part, out double number))
                             {
                                 isLineBroken = true;
-                                //Log.Debug("Line {lineNumber} is broken (contains non-numeric elements).", lineNumber);
                                 break;
                             }
                             sum += number;
