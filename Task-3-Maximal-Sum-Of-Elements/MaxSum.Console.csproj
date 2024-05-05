@@ -6,6 +6,7 @@
     <RootNamespace>Task_3_Maximal_Sum_Of_Elements</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
