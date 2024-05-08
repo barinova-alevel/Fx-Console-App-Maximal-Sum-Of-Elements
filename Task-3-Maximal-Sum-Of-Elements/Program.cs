@@ -40,7 +40,7 @@ public class Program
             else if (userInput == "yes")
             {
                 string filePath = output.GetPath(filePathArg);
-                targetFile.ReadLines(filePath);
+                targetFile.GetAllLines(filePath);
             }
         }
     }

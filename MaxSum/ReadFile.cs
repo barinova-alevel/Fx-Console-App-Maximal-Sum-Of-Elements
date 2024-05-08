@@ -1,10 +1,29 @@
-﻿using System.Linq.Expressions;
-using Serilog;
+﻿using Serilog;
 
 namespace MaxSum
 {
     public class ReadFile : IReadFile
     {
+        public List<string> GetAllLines(string filePath)
+        {
+            List<string> allLines = new List<string>();
+            try
+            {
+                if (!File.Exists(filePath)) 
+                {
+                    Log.Debug($"File {filePath} does not exist.");
+                    return allLines;
+                }
+
+                string[] linesArray = File.ReadAllLines(filePath);
+                allLines.AddRange(linesArray);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"An error occured while reading the file: {ex.Message}");
+            }
+            return allLines;
+        }
         public void ReadLines(string filePath)
         {
             try
@@ -17,7 +36,7 @@ namespace MaxSum
                     string lineWithMaxSum = "";
                     int lineNumber = 0;
                     int maxSumLineNumber = 0;
-                    
+
 
                     foreach (string line in lines)
                     {
@@ -58,10 +77,12 @@ namespace MaxSum
                         Log.Information($"Line with the biggest sum: {lineWithMaxSum}");
                         Log.Information($"Biggest sum: {maxSum}");
                         Log.Information($"Line number with biggest sum: {maxSumLineNumber}");
+                        //return lineNumber;
                     }
                     else
                     {
                         Log.Information($"No valid lines with sums were found.");
+                        //return -1; //what should i return here?
                     }
                 }
 
@@ -76,27 +97,6 @@ namespace MaxSum
                 var messageDetails = ex.Message;
                 Log.Error("Error occurred: {message} \n{messageDetails} \n{ex}", message, messageDetails, ex);
             }
-        }
-
-        static public int LineCounter(string filePath)
-        {
-            int numberOfLines = 0;
-
-            try
-            {
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    while (reader.ReadLine() != null)
-                    {
-                        numberOfLines++;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.Debug($"An error occurred: {ex.Message}");
-            }
-            return numberOfLines;
         }
     }
 }
