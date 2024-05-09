@@ -23,8 +23,9 @@ public class Program
         {
             InputOutput output = new InputOutput();
             ReadFile targetFile = new ReadFile();
-            //should be logger or console here? 
-            Log.Information("Would you like to read a file? (yes/no): ");
+            SumCalculation sumCalculation = new SumCalculation();
+
+            Console.WriteLine("Would you like to read a file? (yes/no): ");
             string userInput = Console.ReadLine().ToLower();
 
             if (userInput == "no")
@@ -40,7 +41,10 @@ public class Program
             else if (userInput == "yes")
             {
                 string filePath = output.GetPath(filePathArg);
-                targetFile.GetAllLines(filePath);
+                List<string> allLines = targetFile.GetAllLines(filePath);
+                List<string> numericLines = sumCalculation.GetNumericLines(allLines);
+                sumCalculation.GetLineWithMaxSum(numericLines, allLines);
+                sumCalculation.ShowNumbersOfNonNumericLines();
             }
         }
     }

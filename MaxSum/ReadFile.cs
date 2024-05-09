@@ -14,7 +14,7 @@ namespace MaxSum
                     Log.Debug($"File {filePath} does not exist.");
                     return allLines;
                 }
-
+                Log.Information($"Reading file from {filePath}");
                 string[] linesArray = File.ReadAllLines(filePath);
                 allLines.AddRange(linesArray);
             }

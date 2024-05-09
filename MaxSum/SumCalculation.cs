@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 using Serilog;
 
 namespace MaxSum
 {
     public class SumCalculation
     {
-        //How to put filling of broken lines list in a method?
         List<int> numbersBrokenLines = new List<int>();
 
-        public int GetLineWithMaxSum(List<string> numericLines)
+        public int GetLineWithMaxSum(List<string> numericLines, List<string> allLines)
         {
             int numberLineWithMaxSum = 1;
             double maxSum = 0;
+            Log.Information("Calculating line with max sum.");
 
             foreach (string line in numericLines)
             {
-               double lineSum = LineSumCalculation(line);
-                if (lineSum > maxSum) 
+                double lineSum = LineSumCalculation(line);
+                if (lineSum > maxSum)
                 {
                     maxSum = lineSum;
-                    numberLineWithMaxSum = numericLines.IndexOf(line)+1;
+                    numberLineWithMaxSum = allLines.IndexOf(line) + 1;
                 }
             }
-            Log.Information($"The line with max sum is {numberLineWithMaxSum}");
+
+            Log.Information($"Number of the line with max sum is {numberLineWithMaxSum}");
+            Log.Information($"The max sum is {maxSum}");
             return numberLineWithMaxSum;
         }
 
@@ -43,19 +40,23 @@ namespace MaxSum
                 {
                     sum += tempNumber;
                 }
-                else 
+                else
                 {
-                    Log.Error($"Invalid number format: {number}");
+                    //Log.Error($"Invalid number format: {number}");
+                    break;
                 }
             }
 
+            Log.Information($"Sum of elements for '{line}' is {sum}");
             return sum;
         }
 
-        public void ShowNumbersOfNonNumericLines(List<int> numbersBrokenLines)
+        //recheck
+        public void ShowNumbersOfNonNumericLines()
         {
+            List<int> numbersBroken = numbersBrokenLines;
             Log.Information("Non numeric lines: ");
-            foreach (int number in numbersBrokenLines)
+            foreach (int number in numbersBroken)
             {
                 Log.Information($"{number} ");
             }
@@ -70,10 +71,12 @@ namespace MaxSum
                 if (IsNumeric(line))
                 {
                     numericLines.Add(line);
+                    Log.Information($"'{line}' is numeric.");
                 }
                 else
                 {
                     numbersBrokenLines.Add(allLines.IndexOf(line) + 1);
+                    Log.Information($"'{line}' is broken.");
                 }
             }
             return numericLines;
@@ -81,7 +84,16 @@ namespace MaxSum
 
         private bool IsNumeric(string line)
         {
-            return double.TryParse(line, out _);
+            string[] values = line.Split(",");
+            foreach (string value in values)
+            {
+                if (!double.TryParse(value, out double _))
+                {
+                    return false;
+                }
+            }
+            //bool result = double.TryParse(line, out _);
+            return true;
         }
     }
 }
