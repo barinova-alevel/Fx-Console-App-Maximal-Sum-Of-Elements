@@ -5,13 +5,21 @@ namespace MaxSum
 {
     public class SumCalculation
     {
-        List<int> numbersBrokenLines = new List<int>();
+        private List<int> numbersBrokenLines = new List<int>();
+        public List<LineAnalyzingResult> line = new List<LineAnalyzingResult>();
+
+        public int NumberNonNumericLines()
+        {
+            int result = numbersBrokenLines.Count;
+            Log.Information($"Number of broken lines is {result}");
+            return result;
+        }
 
         public int GetLineWithMaxSum(List<string> numericLines, List<string> allLines)
         {
             int numberLineWithMaxSum = 1;
             double maxSum = 0;
-            Log.Information("Calculating line with max sum.");
+            Log.Information("Calculating line with max sum");
 
             foreach (string line in numericLines)
             {
@@ -51,33 +59,33 @@ namespace MaxSum
             return sum;
         }
 
-        //recheck
+        //move in console project?
         public void ShowNumbersOfNonNumericLines()
         {
             List<int> numbersBroken = numbersBrokenLines;
-            Log.Information("Non numeric lines: ");
-            foreach (int number in numbersBroken)
-            {
-                Log.Information($"{number} ");
-            }
+            string result = String.Join(", ", numbersBroken);
+            Log.Information($"Non numeric lines: {result}");
         }
 
         public List<string> GetNumericLines(List<string> allLines)
         {
             List<string> numericLines = new List<string>();
-
+            int lineNumber = 1;
+            
             foreach (string line in allLines)
             {
                 if (IsNumeric(line))
                 {
                     numericLines.Add(line);
-                    Log.Information($"'{line}' is numeric.");
+                    Log.Information($"Line {lineNumber}: {line} >> numeric");
                 }
                 else
                 {
+
                     numbersBrokenLines.Add(allLines.IndexOf(line) + 1);
-                    Log.Information($"'{line}' is broken.");
+                    Log.Information($"Line {lineNumber}: {line} >> broken");
                 }
+                lineNumber++;
             }
             return numericLines;
         }

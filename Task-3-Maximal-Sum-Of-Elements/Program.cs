@@ -1,4 +1,5 @@
-﻿using MaxSum;
+﻿using System.Globalization;
+using MaxSum;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Task_3_Maximal_Sum_Of_Elements;
@@ -7,7 +8,6 @@ public class Program
 {
     public static void Main(string[] args)
     {
-           
         IConfigurationRoot builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
@@ -40,11 +40,17 @@ public class Program
 
             else if (userInput == "yes")
             {
+                //string filePath = @"c:\temp\test.png";
                 string filePath = output.GetPath(filePathArg);
                 List<string> allLines = targetFile.GetAllLines(filePath);
                 List<string> numericLines = sumCalculation.GetNumericLines(allLines);
                 sumCalculation.GetLineWithMaxSum(numericLines, allLines);
                 sumCalculation.ShowNumbersOfNonNumericLines();
+                sumCalculation.NumberNonNumericLines();
+                //double maxSum = SumCalculation.Helper.GetMaxSumOfElements();
+                //hide other calculations in Helper class
+
+                //what should be result? Number of line or max sum?
             }
         }
     }

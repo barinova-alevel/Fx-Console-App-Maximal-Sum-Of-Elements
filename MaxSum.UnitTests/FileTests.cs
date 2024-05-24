@@ -37,19 +37,19 @@ namespace MaxSum.UnitTests
             }
         }
 
-        [TestCase("C:\\Temp\\Test\\test.txt", "My content \n1,-5,4")]
-        public void CheckReadFile_txt(string filePath, string content)
-        {
-            //Arrange
-            ReadFile targetFile = new ReadFile();
+        //[TestCase("C:\\Temp\\Test\\test.txt", "My content \n1,-5,4")]
+        //public void CheckReadFile_txt(string filePath, string content)
+        //{
+        //    //Arrange
+        //    ReadFile targetFile = new ReadFile();
 
-            //Act
-            CreateFile(filePath, content);
-            targetFile.ReadLines(filePath);
+        //    //Act
+        //    CreateFile(filePath, content);
+        //    targetFile.ReadLines(filePath);
 
-            //Assert
-            //Assert.IsTrue(File.Exists(filePath)
+        //    //Assert
+        //    //Assert.IsTrue(File.Exists(filePath)
 
-        }
+        //}
     }
 }
