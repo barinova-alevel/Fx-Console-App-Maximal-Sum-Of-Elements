@@ -43,12 +43,10 @@ public class Program
                 //string filePath = @"c:\temp\test.png";
                 string filePath = output.GetPath(filePathArg);
                 List<string> allLines = targetFile.GetAllLines(filePath);
-                List<string> numericLines = sumCalculation.GetNumericLines(allLines);
-                sumCalculation.GetLineWithMaxSum(numericLines, allLines);
-                sumCalculation.ShowNumbersOfNonNumericLines();
-                sumCalculation.NumberNonNumericLines();
-                //double maxSum = SumCalculation.Helper.GetMaxSumOfElements();
-                //hide other calculations in Helper class
+                //List<string> numericLines = sumCalculation.GetNumericLines(allLines);
+                //sumCalculation.GetLineWithMaxSum(numericLines, allLines);
+                //sumCalculation.ShowNumbersOfNonNumericLines();
+                //sumCalculation.NumberNonNumericLines();
 
                 //what should be result? Number of line or max sum?
             }
