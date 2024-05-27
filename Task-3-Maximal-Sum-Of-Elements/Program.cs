@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using MaxSum;
 using Microsoft.Extensions.Configuration;
 using Serilog;
@@ -43,6 +44,8 @@ public class Program
                 //string filePath = @"c:\temp\test.png";
                 string filePath = output.GetPath(filePathArg);
                 List<string> allLines = targetFile.GetAllLines(filePath);
+                List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
+                int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
                 //List<string> numericLines = sumCalculation.GetNumericLines(allLines);
                 //sumCalculation.GetLineWithMaxSum(numericLines, allLines);
                 //sumCalculation.ShowNumbersOfNonNumericLines();
