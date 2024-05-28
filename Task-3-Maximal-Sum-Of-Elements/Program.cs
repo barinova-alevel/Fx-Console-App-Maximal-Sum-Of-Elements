@@ -41,17 +41,18 @@ public class Program
 
             else if (userInput == "yes")
             {
-                //string filePath = @"c:\temp\test.png";
-                string filePath = output.GetPath(filePathArg);
+                string filePath = @"c:\temp\test.txt";
+                //string filePath = output.GetPath(filePathArg);
                 List<string> allLines = targetFile.GetAllLines(filePath);
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
-                int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
-                //List<string> numericLines = sumCalculation.GetNumericLines(allLines);
-                //sumCalculation.GetLineWithMaxSum(numericLines, allLines);
-                //sumCalculation.ShowNumbersOfNonNumericLines();
-                //sumCalculation.NumberNonNumericLines();
 
-                //what should be result? Number of line or max sum?
+                int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
+                double maxSum = sumCalculation.GetMaxSum();
+                int numberOfBrokenLines = sumCalculation.GetNumberOfNonNumericLines();
+                List<int> listOfNumbersNonNumericLines = sumCalculation.GetListOfNumbersNonNumericLines();
+
+                Log.Information("List of non numeric lines:");
+                output.PrintNumbersOfLines(listOfNumbersNonNumericLines);
             }
         }
     }

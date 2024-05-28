@@ -12,6 +12,5 @@
             sumOfElements = sum;
             isNumeric = numericLine;
         }
-        
     }
 }

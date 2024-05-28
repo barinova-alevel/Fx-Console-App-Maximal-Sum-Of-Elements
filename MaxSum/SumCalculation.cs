@@ -5,8 +5,8 @@ namespace MaxSum
 {
     public class SumCalculation
     {
-        private double maxSum = 0;
-        private List<int> numbersBrokenLines = new List<int>();
+        private double _maxSum = 0;
+        private List<int> _listOfNonNumericLines = new List<int>();
 
         public int GetLineWithMaxSum(List<LineAnalyzingResult> lines)
         {
@@ -17,19 +17,60 @@ namespace MaxSum
             {
                 if (line.isNumeric)
                 {
+                    Log.Information($"Line {line.indexOfLine + 1} is numeric");
                     double lineSum = line.sumOfElements;
-                    if (lineSum > maxSum)
+                    if (lineSum > _maxSum)
                     {
-                        maxSum = lineSum;
+                        _maxSum = lineSum;
                         numberLineWithMaxSum = line.indexOfLine + 1;
                     }
                 }
                 else
                 {
-                    numbersBrokenLines.Add(line.indexOfLine + 1);
+                    Log.Information($"Line {line.indexOfLine + 1} is non numeric");
+                    _listOfNonNumericLines.Add(line.indexOfLine + 1);
                 }
             }
+            Log.Information($"Line with max sum is {numberLineWithMaxSum}");
             return numberLineWithMaxSum;
+        }
+
+        public List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
+        {
+            List<LineAnalyzingResult> analyzedLines = new List<LineAnalyzingResult>();
+            int lineIndex = 0;
+
+            foreach (string line in allLines)
+            {
+                bool isNumbers = IsNumeric(line);
+                double sum = 0;
+                if (isNumbers)
+                {
+                    sum = LineSumCalculation(line);
+                    Log.Debug($"Sum of line {lineIndex + 1}: {sum}");
+                }
+
+                analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
+                lineIndex++;
+            }
+            return analyzedLines;
+        }
+
+        public int GetNumberOfNonNumericLines()
+        {
+            int result = _listOfNonNumericLines.Count;
+            Log.Information($"Number of non numeric lines is {result}");
+            return result;
+        }
+
+        public List<int> GetListOfNumbersNonNumericLines()
+        {
+            return _listOfNonNumericLines;
+        }
+
+        public double GetMaxSum()
+        {
+            return _maxSum;
         }
 
         private double LineSumCalculation(string line)
@@ -54,47 +95,6 @@ namespace MaxSum
             Log.Information($"Sum of elements for '{line}' is {sum}");
             return sum;
         }
-
-        public List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
-        {
-            List<LineAnalyzingResult> objectLine = new List<LineAnalyzingResult>();
-            int lineIndex = 0;
-
-
-            foreach (string line in allLines)
-            {
-                bool isNumbers = IsNumeric(line);
-                double sum = 0;
-                if (isNumbers)
-                {
-                    sum = LineSumCalculation(line);
-                }
-
-                objectLine.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
-                lineIndex++;
-            }
-            return objectLine;
-        }
-
-        public int NumberNotNumericLines()
-        {
-            int result = numbersBrokenLines.Count;
-            Log.Information($"Number of broken lines is {result}");
-            return result;
-        }
-
-        public void ShowNumbersOfNotNumericLines()
-        {
-            List<int> numbersBroken = numbersBrokenLines;
-            string result = String.Join(", ", numbersBroken);
-            Log.Information($"Non numeric lines: {result}");
-        }
-
-        public List<int> GetListOfNumbersNotNumericLines()
-        {
-            return numbersBrokenLines;
-        }
-
         private bool IsNumeric(string line)
         {
             string[] values = line.Split(",");
