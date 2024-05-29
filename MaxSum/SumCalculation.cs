@@ -17,7 +17,6 @@ namespace MaxSum
             {
                 if (line.isNumeric)
                 {
-                    Log.Information($"Line {line.indexOfLine + 1} is numeric");
                     double lineSum = line.sumOfElements;
                     if (lineSum > _maxSum)
                     {
@@ -27,7 +26,7 @@ namespace MaxSum
                 }
                 else
                 {
-                    Log.Information($"Line {line.indexOfLine + 1} is non numeric");
+                    Log.Debug($"Adding line {line.indexOfLine + 1} to list of non numeric");
                     _listOfNonNumericLines.Add(line.indexOfLine + 1);
                 }
             }
@@ -44,10 +43,12 @@ namespace MaxSum
             {
                 bool isNumbers = IsNumeric(line);
                 double sum = 0;
+                Log.Debug($"Line {lineIndex + 1}: {line}");
+
                 if (isNumbers)
                 {
                     sum = LineSumCalculation(line);
-                    Log.Debug($"Sum of line {lineIndex + 1}: {sum}");
+                    Log.Debug($"Line {lineIndex + 1} is numeric, its sum: {sum}");
                 }
 
                 analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
@@ -70,6 +71,7 @@ namespace MaxSum
 
         public double GetMaxSum()
         {
+            Log.Information($"Max sum: {_maxSum}");
             return _maxSum;
         }
 
@@ -92,7 +94,7 @@ namespace MaxSum
                 }
             }
 
-            Log.Information($"Sum of elements for '{line}' is {sum}");
+            //Log.Information($"Sum of elements for '{line}' is {sum}");
             return sum;
         }
         private bool IsNumeric(string line)

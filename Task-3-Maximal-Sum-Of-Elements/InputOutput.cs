@@ -37,7 +37,7 @@ namespace Task_3_Maximal_Sum_Of_Elements
         public void PrintNumbersOfLines(List<int> lines)
         {
             string result = String.Join(", ", lines);
-            Console.WriteLine($"Lines: {result}");
+            Console.WriteLine($"{result}");
         }
 
         private string GetPathFromConsole()
