@@ -11,8 +11,8 @@ namespace MaxSum
             {
                 if (!File.Exists(filePath))
                 {
-                    Log.Debug($"File {filePath} does not exist.");
-                    return null;
+                    Log.Information($"File {filePath} does not exist.");
+                    return allLines;
                 }
                 else
                 {

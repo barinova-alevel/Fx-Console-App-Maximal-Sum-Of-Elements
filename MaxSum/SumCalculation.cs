@@ -11,7 +11,7 @@ namespace MaxSum
         public int GetLineWithMaxSum(List<LineAnalyzingResult> lines)
         {
             //what if all lines broken? numberLineWithMaxSum?
-            int numberLineWithMaxSum = 1;
+            int numberLineWithMaxSum = 0;
 
             foreach (LineAnalyzingResult line in lines)
             {
@@ -39,22 +39,31 @@ namespace MaxSum
             List<LineAnalyzingResult> analyzedLines = new List<LineAnalyzingResult>();
             int lineIndex = 0;
 
-            foreach (string line in allLines)
+            if (allLines.Count > 0)
             {
-                bool isNumbers = IsNumeric(line);
-                double sum = 0;
-                Log.Debug($"Line {lineIndex + 1}: {line}");
-
-                if (isNumbers)
+                foreach (string line in allLines)
                 {
-                    sum = LineSumCalculation(line);
-                    Log.Debug($"Line {lineIndex + 1} is numeric, its sum: {sum}");
-                }
+                    bool isNumbers = IsNumeric(line);
+                    double sum = 0;
+                    Log.Debug($"Line {lineIndex + 1}: {line}");
 
-                analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
-                lineIndex++;
+                    if (isNumbers)
+                    {
+                        sum = LineSumCalculation(line);
+                        Log.Debug($"Line {lineIndex + 1} is numeric, its sum: {sum}");
+                    }
+
+                    analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
+                    lineIndex++;
+                }
+                return analyzedLines;
             }
-            return analyzedLines;
+            else 
+            {
+                Log.Debug("No lines found");
+                //what shuld be returned here?
+                return analyzedLines;
+            }
         }
 
         public int GetNumberOfNonNumericLines()
