@@ -5,7 +5,6 @@ namespace MaxSum.UnitTests
     [TestFixture, Description("File tests")]
     internal class FileTests
     {
-        //move this method in TestsHelper class?
         protected void CreateFile(string path, string content)
         {
             //string path = @"C:\Temp\Test\test.txt";
