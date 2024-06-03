@@ -42,8 +42,8 @@ public class Program
             else if (userInput == "yes")
             {
                 // what about cultural info? Where and why should I use it ?
-                //string filePath = @"c:\temp\test.txt";
-                string filePath = output.GetPath(filePathArg);
+                string filePath = @"c:\temp\test.png";
+               // string filePath = output.GetPath(filePathArg);
                 List<string> allLines = targetFile.GetAllLines(filePath);
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
 

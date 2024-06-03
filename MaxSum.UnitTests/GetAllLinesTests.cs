@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Text;
+﻿using System.Text;
 
 namespace MaxSum.UnitTests
 {
@@ -10,15 +8,12 @@ namespace MaxSum.UnitTests
     {
         ReadFile readFile = new ReadFile();
 
-        //[TestCase(null, "My content\n1,-5,4", new string[] { "My content", "1,-5,4" })] null checking
-        //public void CheckGetAllLines(string? path, string content, string[] array)
+        [TestCase("C://Temp//test.txt", "0,0,3\n1,-5,4", 2, new string[] { "0,0,3", "1,-5,4" })]//init test
+        [TestCase("C://Temp//Test//test.txt", "My content\n1,-5,4", 2, new string[] { "My content", "1,-5,4" })]//path with nested folder
+        [TestCase("C://Temp//test.txt", "2023-06-02 17:43:45\n2023-06-02 17:43:46", 2, new string[] { "2023-06-02 17:43:45", "2023-06-02 17:43:46" })] //date time content
+        [TestCase("C://Temp//Test//test.json", "{\r\n\t\"name\": \"document-merge\"\n}", 3, new string[] { "{", "\t\"name\": \"document-merge\"", "}" })] // not txt format
+        [TestCase("C://Temp//test.log", "2023-06-02 17:43:45 INFO  Field type =state\r\n2023-06-02 17:43:45 INFO  Field type =user\r\n2023-06-02 17:43:45 INFO  Field type =relationship\r\n2023-06-02 17:43:45 INFO  Field type =float", 4, new string[] { "2023-06-02 17:43:45 INFO  Field type =state", "2023-06-02 17:43:45 INFO  Field type =user", "2023-06-02 17:43:45 INFO  Field type =relationship", "2023-06-02 17:43:45 INFO  Field type =float" })] //more lines
 
-        //[TestCase("", "My content\n1,-5,4", new string[] { "My content", "1,-5,4" })] //empty path
-
-        [TestCase("C://Temp//test.txt", "My content\n1,-5,4", 2, new string[] {"My content", "1,-5,4" })]
-        [TestCase("C://Temp//Test//test.txt", "My content\n1,-5,4", 2, new string[] {"My content", "1,-5,4" })] 
-        //here continue playing with path and content
-        
         public void CheckGetAllLines(string path, string content, int count, string[] array)
         {
             //Arrange
@@ -34,11 +29,29 @@ namespace MaxSum.UnitTests
             Assert.That(result, Is.EqualTo(expected));
         }
 
+        public void CheckGetAllLines_NullPassing()
+        {
+            //Arrange
+            string path = null;
+
+            //Act&Assert
+            Assert.DoesNotThrow(() => readFile.GetAllLines(path));
+        }
+
+        public void CheckGetAllLines_EmptyFile()
+        {
+            //Arrange
+            string path = "C://Temp//test.txt";
+
+            //Act
+            CreateFile(path, String.Empty);
+
+            //Assert
+            Assert.DoesNotThrow(() => readFile.GetAllLines(path));
+        }
+
         private void CreateFile(string path, string content)
         {
-            //string path = @"C:\Temp\Test\test.txt";
-            //string content = "My content \n1,-5,4";
-            //string message3 = System.String.Empty;
             try
             {
                 string directoryPath = Path.GetDirectoryName(path);
@@ -64,6 +77,5 @@ namespace MaxSum.UnitTests
                 Console.WriteLine(ex.ToString());
             }
         }
-
     }
 }
