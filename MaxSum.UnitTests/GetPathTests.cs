@@ -32,14 +32,5 @@ namespace MaxSum.UnitTests
             //Act & Assert
             Assert.DoesNotThrow(() => inputOutput.GetPath(providedFilePathArgument));
         }
-
-        //follow test includes console interaction.Wrap Console I/O and Mock the Wrapper
-        //[Test]
-        //public void CheckGetPath_Negative_EmptyPath()
-        //{
-        //    //Act & Assert
-        //    Assert.DoesNotThrow(() => inputOutput.GetPath(string.Empty));
-        //}
-
     }
 }
