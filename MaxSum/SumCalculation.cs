@@ -39,29 +39,38 @@ namespace MaxSum
             List<LineAnalyzingResult> analyzedLines = new List<LineAnalyzingResult>();
             int lineIndex = 0;
 
-            if (allLines.Count > 0)
+            try
             {
-                foreach (string line in allLines)
+                if ((allLines != null) && (allLines.Count > 0))
                 {
-                    bool isNumbers = IsNumeric(line);
-                    double sum = 0;
-                    Log.Debug($"Line {lineIndex + 1}: {line}");
-
-                    if (isNumbers)
+                    foreach (string line in allLines)
                     {
-                        sum = LineSumCalculation(line);
-                        Log.Debug($"Line {lineIndex + 1} is numeric, its sum: {sum}");
-                    }
+                        bool isNumbers = IsNumeric(line);
+                        double sum = 0;
+                        Log.Debug($"Line {lineIndex + 1}: {line}");
 
-                    analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
-                    lineIndex++;
+                        if (isNumbers)
+                        {
+                            sum = LineSumCalculation(line);
+                            Log.Debug($"Line {lineIndex + 1} is numeric, its sum: {sum}");
+                        }
+
+                        analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
+                        lineIndex++;
+                    }
+                    return analyzedLines;
                 }
-                return analyzedLines;
+                else
+                {
+                    Log.Debug("No lines found");
+                    //what shuld be returned here?
+                    return analyzedLines;
+                }
             }
-            else 
+            catch(Exception ex)
             {
-                Log.Debug("No lines found");
-                //what shuld be returned here?
+                Log.Error($"An error occured while analyzing lines: {ex.Message}");
+                //What should be returned here?
                 return analyzedLines;
             }
         }

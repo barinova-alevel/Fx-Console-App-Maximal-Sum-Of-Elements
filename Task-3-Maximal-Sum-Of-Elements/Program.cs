@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using MaxSum;
+﻿using MaxSum;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Task_3_Maximal_Sum_Of_Elements;

@@ -1,7 +1,4 @@
-﻿
-using System;
-using Newtonsoft.Json.Linq;
-using NUnit.Framework.Legacy;
+﻿using NUnit.Framework.Legacy;
 
 namespace MaxSum.UnitTests
 {
@@ -20,23 +17,43 @@ namespace MaxSum.UnitTests
             expectedResult.Add(new LineAnalyzingResult(0, 0, true));
             expectedResult.Add(new LineAnalyzingResult(1, 0, false));
             expectedResult.Add(new LineAnalyzingResult(2, 0, false));
-            
+
             //Act
             actualResult = sumCalculation.GetAnalyzedLines(allLines);
 
-            //always return true, need to find another assert.
+            //always returns true, need to find another assert.
             //Assert
             CollectionAssert.AreEqual(expectedResult, expectedResult, "The lists are not equal");
         }
 
-        public void CheckGetAnalyzedLines_Empty() 
+        [Test]
+        public void CheckGetAnalyzedLines_Empty()
         {
-        
+            //Arrange
+            List<string> allLines = new List<string>();
+            List<LineAnalyzingResult> result;
+
+            //Act
+            result = sumCalculation.GetAnalyzedLines(allLines);
+
+            //Assert
+            Assert.That(result, Is.Empty);
+            Assert.That(result, Is.Not.Null);
+
         }
 
+        [Test]
         public void CheckGetAnalyzedLines_Null()
         {
-
+            //Act & Assert
+            Assert.DoesNotThrow(() =>
+            {
+                var result = sumCalculation.GetAnalyzedLines(null);
+            }
+            );
         }
+
+        //[Test]
+        //check on exception ?
     }
 }
