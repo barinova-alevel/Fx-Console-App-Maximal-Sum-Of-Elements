@@ -7,6 +7,7 @@ namespace MaxSum.UnitTests
     {
         SumCalculation sumCalculation = new SumCalculation();
 
+        //Not working
         [Test]
         public void CheckGetAnalyzedLines()
         {
@@ -21,9 +22,8 @@ namespace MaxSum.UnitTests
             //Act
             actualResult = sumCalculation.GetAnalyzedLines(allLines);
 
-            //always returns true, need to find another assert.
             //Assert
-            CollectionAssert.AreEqual(expectedResult, expectedResult, "The lists are not equal");
+            CollectionAssert.AreEqual(actualResult, expectedResult, "The lists are not equal");
         }
 
         [Test]
