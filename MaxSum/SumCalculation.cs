@@ -107,12 +107,11 @@ namespace MaxSum
                 }
                 else
                 {
-                    //Log.Error($"Invalid number format: {number}");
+                    Log.Debug($"Invalid number format: {number}");
                     break;
                 }
             }
 
-            //Log.Information($"Sum of elements for '{line}' is {sum}");
             return sum;
         }
         private bool IsNumeric(string line)
