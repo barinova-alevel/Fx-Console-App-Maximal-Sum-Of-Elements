@@ -2,6 +2,6 @@
 {
     public interface IReadFile
     {
-        public void ReadLines(string filePath);
+        public List<string> GetAllLines(string filePath);
     }
 }

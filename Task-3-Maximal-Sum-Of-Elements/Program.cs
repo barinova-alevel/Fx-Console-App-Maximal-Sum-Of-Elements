@@ -7,7 +7,6 @@ public class Program
 {
     public static void Main(string[] args)
     {
-           
         IConfigurationRoot builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
                 .Build();
@@ -23,8 +22,9 @@ public class Program
         {
             InputOutput output = new InputOutput();
             ReadFile targetFile = new ReadFile();
-            //should be logger or console here? 
-            Log.Information("Would you like to read a file? (yes/no): ");
+            SumCalculation sumCalculation = new SumCalculation();
+
+            Console.WriteLine("Would you like to read a file? (yes/no): ");
             string userInput = Console.ReadLine().ToLower();
 
             if (userInput == "no")
@@ -39,8 +39,18 @@ public class Program
 
             else if (userInput == "yes")
             {
+                // what about cultural info? Where and why should I use it ?
                 string filePath = output.GetPath(filePathArg);
-                targetFile.ReadLines(filePath);
+                List<string> allLines = targetFile.GetAllLines(filePath);
+                List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
+
+                int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
+                double maxSum = sumCalculation.GetMaxSum();
+                int numberOfBrokenLines = sumCalculation.GetNumberOfNonNumericLines();
+                List<int> listOfNumbersNonNumericLines = sumCalculation.GetListOfNumbersNonNumericLines();
+
+                Log.Information("List of non numeric lines:");
+                output.PrintNumbersOfLines(listOfNumbersNonNumericLines);
             }
         }
     }
