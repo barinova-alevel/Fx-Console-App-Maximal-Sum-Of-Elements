@@ -71,7 +71,8 @@ namespace MaxSum
             {
                 Log.Error($"An error occured while analyzing lines: {ex.Message}");
                 //What should be returned here?
-                return analyzedLines;
+                //return analyzedLines;
+                throw ex;
             }
         }
 

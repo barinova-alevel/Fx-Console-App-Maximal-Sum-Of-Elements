@@ -19,13 +19,14 @@ namespace MaxSum
                     Log.Information($"Reading file from {filePath}");
                     string[] linesArray = File.ReadAllLines(filePath);
                     allLines.AddRange(linesArray);
+                    return allLines;
                 }
             }
             catch (Exception ex)
             {
                 Log.Error($"An error occured while reading the file: {ex.Message}");
+                throw;
             }
-            return allLines;
         }
     }
 }
