@@ -17,7 +17,6 @@ public class Program
         Log.Logger.Information("start");
 
         string filePathArg = args.FirstOrDefault(arg => arg.StartsWith("--path="));
-
         while (true)
         {
             InputOutput output = new InputOutput();
@@ -42,7 +41,6 @@ public class Program
                 string filePath = output.GetPath(filePathArg);
                 List<string> allLines = targetFile.GetAllLines(filePath);
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
-
                 int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
                 double maxSum = sumCalculation.GetMaxSum();
                 int numberOfBrokenLines = sumCalculation.GetNumberOfNonNumericLines();

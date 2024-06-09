@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System.IO.Pipes;
+using System.Security.AccessControl;
+using System.Security.Principal;
+using System.Text;
+using Serilog;
 
 namespace MaxSum.UnitTests
 {
@@ -50,6 +54,39 @@ namespace MaxSum.UnitTests
             Assert.DoesNotThrow(() => readFile.GetAllLines(path));
         }
 
+        [Test]
+        public void CheckGetAllLines_UnauthorizedAccessException()
+        {
+            //Arrange
+            string path = "C://Temp/TestAccess.txt";
+            string content = "File content";
+
+            try
+            {
+                //Act&Assert
+                var fileSecurity = new FileSecurity();
+                CreateFile(path, content);
+                FileInfo fileInfo = new FileInfo(path);
+                var currentUser = WindowsIdentity.GetCurrent().User;
+                fileSecurity.AddAccessRule(new FileSystemAccessRule(currentUser, FileSystemRights.Read, AccessControlType.Deny));
+                fileInfo.SetAccessControl(fileSecurity);
+
+                //doesn't fit
+                Assert.Catch(() => readFile.GetAllLines(path), "Access to the path");
+            }
+            finally
+            {
+                var fileSecurity = new FileSecurity();
+                FileInfo fileInfo = new FileInfo(path);
+                fileSecurity.SetAccessRuleProtection(false, false);
+                fileInfo.SetAccessControl(fileSecurity);
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+        }
+
         private void CreateFile(string path, string content)
         {
             try
@@ -74,7 +111,7 @@ namespace MaxSum.UnitTests
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Log.Debug(ex.ToString());
             }
         }
     }
