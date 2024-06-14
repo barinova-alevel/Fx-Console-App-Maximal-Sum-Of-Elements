@@ -15,9 +15,6 @@ namespace MaxSum.UnitTests
             List<string> allLines = new List<string> { "1,2,-3", "some text", "4, h, 5" };
             List<LineAnalyzingResult> actualResult;
             List<LineAnalyzingResult> expectedResult = new List<LineAnalyzingResult>();
-            //{
-            //    new LineAnalyzingResult {indexOfLine = 0, sumOfElements = 0, isNumeric = true },
-            //};
             expectedResult.Add(new LineAnalyzingResult(0, 0, true));
             expectedResult.Add(new LineAnalyzingResult(1, 0, false));
             expectedResult.Add(new LineAnalyzingResult(2, 0, false));

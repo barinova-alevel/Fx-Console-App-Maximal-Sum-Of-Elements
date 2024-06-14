@@ -63,7 +63,7 @@ namespace MaxSum
                 else
                 {
                     Log.Debug("No lines found");
-                    //what shuld be returned here?
+                    //what should be returned here? Environment.Exit(0)?
                     return analyzedLines;
                 }
             }

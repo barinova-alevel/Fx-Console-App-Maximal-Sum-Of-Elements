@@ -1,7 +1,12 @@
-﻿using Serilog;
+﻿using System;
+using Serilog;
 
 namespace MaxSum
 {
+    //    Можна кидати виключення, що файл пустий.І потім коли ловиш його виводити якесь попередження, що не вдалось зчитати жодного рядку з файлу.
+
+    //У ситуації, коли файл не пустий, але всі рядки некоректні, можна слідувати тому ж принципу, що і з пустим файлом, тільки інший exception кидати, який буде казати, що рядки були, але вони всі не числові.
+
     public class ReadFile : IReadFile
     {
         public List<string> GetAllLines(string filePath)
@@ -12,7 +17,12 @@ namespace MaxSum
                 if (!File.Exists(filePath))
                 {
                     Log.Information($"File {filePath} does not exist.");
+                    //ask for enter path manually
                     return allLines;
+                }
+                else if (File.ReadAllLines(filePath).Length == 0)
+                {
+                    throw new EmptyFileException("The file is empty.");
                 }
                 else
                 {
@@ -22,11 +32,18 @@ namespace MaxSum
                     return allLines;
                 }
             }
-            
+
             catch (UnauthorizedAccessException ex)
             {
                 Log.Error($"Error: Access to the file is denied. {ex.Message}");
                 HandleUnauthorizedAccessException();
+                return allLines;
+            }
+
+            catch (EmptyFileException ex)
+            {
+                Log.Information($"Failed to read any line from the file. {ex.Message}");
+                Log.Debug($"{ex.StackTrace}");
                 return allLines;
             }
 
