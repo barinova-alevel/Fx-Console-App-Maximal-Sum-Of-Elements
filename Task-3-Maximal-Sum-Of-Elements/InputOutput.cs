@@ -9,7 +9,7 @@ namespace Task_3_Maximal_Sum_Of_Elements
             string filePath;
             try
             {
-                Log.Debug("Getting file path from path argument {filePathArg}: ", filePathArg);
+                Log.Debug("Getting file path from path argument {filePathArg} ", filePathArg);
 
                 if (string.IsNullOrEmpty(filePathArg))
                 {
@@ -23,7 +23,7 @@ namespace Task_3_Maximal_Sum_Of_Elements
                     string prefix = "--path=";
                     int startIndex = filePathArg.IndexOf(prefix) + prefix.Length;
                     filePath = filePathArg.Substring(startIndex).Trim('"');
-                    Log.Debug("File path: {filePath}", filePath);
+                    Log.Information("File path: {filePath}", filePath);
                     return filePath;
                 }
             }

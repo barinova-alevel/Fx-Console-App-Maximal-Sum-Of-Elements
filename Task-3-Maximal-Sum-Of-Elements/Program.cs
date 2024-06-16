@@ -42,7 +42,7 @@ public class Program
                 List<string> allLines = targetFile.GetAllLines(filePath);
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
                 int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
-                double maxSum = sumCalculation.GetMaxSum();
+                double maxSum = sumCalculation.GetMaxSum(lineWithMaxSum);
                 int numberOfBrokenLines = sumCalculation.GetNumberOfNonNumericLines();
                 List<int> listOfNumbersNonNumericLines = sumCalculation.GetListOfNumbersNonNumericLines();
 

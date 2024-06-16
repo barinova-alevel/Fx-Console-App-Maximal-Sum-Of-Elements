@@ -5,33 +5,50 @@ namespace MaxSum
 {
     public class SumCalculation
     {
-        private double _maxSum = 0;
+        private double _maxSum = -1.7976931348623157E+308;
         private List<int> _listOfNonNumericLines = new List<int>();
 
         public int GetLineWithMaxSum(List<LineAnalyzingResult> lines)
         {
-            //what if all lines broken? numberLineWithMaxSum?
             int numberLineWithMaxSum = 0;
-
-            foreach (LineAnalyzingResult line in lines)
+            int counterOfNumericLines = 0;
+            try
             {
-                if (line.isNumeric)
+                foreach (LineAnalyzingResult line in lines)
                 {
-                    double lineSum = line.sumOfElements;
-                    if (lineSum > _maxSum)
+                    if (line.isNumeric)
                     {
-                        _maxSum = lineSum;
-                        numberLineWithMaxSum = line.indexOfLine + 1;
+                        double lineSum = line.sumOfElements;
+                        if (lineSum > _maxSum)
+                        {
+                            _maxSum = lineSum;
+                            numberLineWithMaxSum = line.indexOfLine + 1;
+                        }
+                        counterOfNumericLines++;
                     }
+                    else
+                    {
+                        Log.Debug($"Adding line {line.indexOfLine + 1} to list of non numeric");
+                        _listOfNonNumericLines.Add(line.indexOfLine + 1);
+                    }
+                }
+
+                if (counterOfNumericLines == 0)
+                {
+                    throw new AllLinesNonNumericException("All lines are non numeric");
                 }
                 else
                 {
-                    Log.Debug($"Adding line {line.indexOfLine + 1} to list of non numeric");
-                    _listOfNonNumericLines.Add(line.indexOfLine + 1);
+                    Log.Information($"Line with max sum is {numberLineWithMaxSum}");
+                    return numberLineWithMaxSum;
                 }
+            } 
+            
+            catch (AllLinesNonNumericException ex)
+            {
+                Log.Information($"There is no lines to calculate max sum {ex.Message}");
+                return -1;
             }
-            Log.Information($"Line with max sum is {numberLineWithMaxSum}");
-            return numberLineWithMaxSum;
         }
 
         public List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
@@ -62,16 +79,16 @@ namespace MaxSum
                 }
                 else
                 {
-                    Log.Debug("No lines found");
-                    //what should be returned here? Environment.Exit(0)?
+                    Log.Information("Max sum can't be calculated for an empty or not existed file.");
+                    Console.WriteLine("Press any key to close the program...");
+                    Console.ReadKey();
+                    Environment.Exit(0);
                     return analyzedLines;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Log.Error($"An error occured while analyzing lines: {ex.Message}");
-                //What should be returned here?
-                //return analyzedLines;
+                Log.Error($"An error occurs while analyzing lines: {ex.Message}, {ex.StackTrace}");
                 throw ex;
             }
         }
@@ -88,10 +105,17 @@ namespace MaxSum
             return _listOfNonNumericLines;
         }
 
-        public double GetMaxSum()
+        public double GetMaxSum(int lineWithMaxSum)
         {
-            Log.Information($"Max sum: {_maxSum}");
-            return _maxSum;
+                if (lineWithMaxSum != -1)
+                {
+                    Log.Information($"Max sum: {_maxSum}");
+                    return _maxSum;
+                }
+                else
+                {
+                return _maxSum;
+                }
         }
 
         private double LineSumCalculation(string line)

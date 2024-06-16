@@ -3,8 +3,6 @@ using Serilog;
 
 namespace MaxSum
 {
-    //    Можна кидати виключення, що файл пустий.І потім коли ловиш його виводити якесь попередження, що не вдалось зчитати жодного рядку з файлу.
-
     //У ситуації, коли файл не пустий, але всі рядки некоректні, можна слідувати тому ж принципу, що і з пустим файлом, тільки інший exception кидати, який буде казати, що рядки були, але вони всі не числові.
 
     public class ReadFile : IReadFile
@@ -17,7 +15,6 @@ namespace MaxSum
                 if (!File.Exists(filePath))
                 {
                     Log.Information($"File {filePath} does not exist.");
-                    //ask for enter path manually
                     return allLines;
                 }
                 else if (File.ReadAllLines(filePath).Length == 0)
@@ -49,7 +46,7 @@ namespace MaxSum
 
             catch (Exception ex)
             {
-                Log.Error($"An error occured while reading the file: {ex.Message}");
+                Log.Error($"An error occurs while reading the file: {ex.Message}");
                 return allLines;
             }
         }
