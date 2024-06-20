@@ -4,7 +4,7 @@ namespace MaxSum.UnitTests
     public class MockFileWrapper : IFileWrapper
     {
         private readonly bool _throwUnauthorizedAccessException;
-
+        
         public MockFileWrapper(bool throwUnauthorizedAccessException = false)
         {
             _throwUnauthorizedAccessException = throwUnauthorizedAccessException;

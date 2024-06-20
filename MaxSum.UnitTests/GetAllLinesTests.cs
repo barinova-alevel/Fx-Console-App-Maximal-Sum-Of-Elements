@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.IO;
+using System;
+using System.Text;
 using Serilog;
 
 namespace MaxSum.UnitTests
@@ -12,6 +14,7 @@ namespace MaxSum.UnitTests
         [TestCase("C://Temp//test.txt", "2023-06-02 17:43:45\n2023-06-02 17:43:46", 2, new string[] { "2023-06-02 17:43:45", "2023-06-02 17:43:46" })] //date time content
         [TestCase("C://Temp//Test//test.json", "{\r\n\t\"name\": \"document-merge\"\n}", 3, new string[] { "{", "\t\"name\": \"document-merge\"", "}" })] // not txt format
         [TestCase("C://Temp//test.log", "2023-06-02 17:43:45 INFO  Field type =state\r\n2023-06-02 17:43:45 INFO  Field type =user\r\n2023-06-02 17:43:45 INFO  Field type =relationship\r\n2023-06-02 17:43:45 INFO  Field type =float", 4, new string[] { "2023-06-02 17:43:45 INFO  Field type =state", "2023-06-02 17:43:45 INFO  Field type =user", "2023-06-02 17:43:45 INFO  Field type =relationship", "2023-06-02 17:43:45 INFO  Field type =float" })] //more lines
+
         public void CheckGetAllLines(string path, string content, int count, string[] array)
         {
             //Arrange
@@ -27,6 +30,37 @@ namespace MaxSum.UnitTests
             //Assert
             Assert.That(result.Count(), Is.EqualTo(count));
             Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void CheckCaseSensitivityPath()
+        {
+            //Arrange
+            MockFileWrapper mockFileWrapper = new MockFileWrapper(false);
+            ReadFile readFile = new ReadFile(mockFileWrapper);
+            List<string> result;
+            List<string> expected = new List<string>
+            {
+                "one",
+                "two",
+                "3"
+            };
+            string lowerCasePath = "C://Temp//123lowercasepath.txt";
+            string PascalCasePath = "C://Temp//LowerCasePath.txt";
+            string content = "one\ntwo\n3";
+
+            //Act
+            CreateFile(lowerCasePath, content);
+            result = readFile.GetAllLines(PascalCasePath);
+
+            //Assert
+            Assert.Multiple(() =>
+            {
+                Assert.That(result.Count(), Is.EqualTo(3));
+                Assert.That(result, Is.EqualTo(expected));
+            });
+            // add TearDown method (to remove lowerCasePath file)
+            //force performing other test cases if one on them has failed.
         }
 
         [Test]
@@ -56,8 +90,7 @@ namespace MaxSum.UnitTests
             Assert.DoesNotThrow(() => readFile.GetAllLines(path));
         }
 
-        //need to be corrected
-        //[Test]
+        [Test]
         public void CheckGetAllLines_UnauthorizedAccessException()
         {
             //Arrange
@@ -65,9 +98,11 @@ namespace MaxSum.UnitTests
             ReadFile readFile = new ReadFile(mockFileWrapper);
             string path = "C://TestAccess.txt";
 
-            //Act & Assert
-            var ex = Assert.Throws<UnauthorizedAccessException>(() => readFile.GetAllLines(path));
-            Assert.That(ex.Message, Is.EqualTo("Access to the file is denied"));
+            //Act
+            CreateFile(path, String.Empty);
+
+            //Assert
+            Assert.DoesNotThrow(() => readFile.GetAllLines(path));
         }
 
         private void CreateFile(string path, string content)

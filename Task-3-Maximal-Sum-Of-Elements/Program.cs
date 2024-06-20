@@ -40,7 +40,8 @@ public class Program
             else if (userInput == "yes")
             {
                 string filePath = output.GetPath(filePathArg);
-               // List<string> allLines = targetFile.GetAllLines(filePath);
+                //string filePath = output.GetPath("--path=\"C:\\Temp\\Test.txt\"");
+                //List<string> allLines = targetFile.GetAllLines(filePath);
                 List<string> allLines = targetFile.GetAllLines("C:\\Temp\\TestAccess.txt");
                 //List<string> allLines = targetFile.GetAllLines("C:\\Temp\\Test.txt");
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
