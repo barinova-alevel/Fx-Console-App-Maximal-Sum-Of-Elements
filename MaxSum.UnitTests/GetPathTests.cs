@@ -6,6 +6,8 @@ namespace MaxSum.UnitTests
     {
         InputOutput inputOutput = new InputOutput();
 
+        [Test]
+        //add test, file name upper/lower case -> GetPath is not case sensitive 
         [TestCase("--path=\"C:\\Temp\\test.txt\"", "C:\\Temp\\test.txt")] //valid file path
         [TestCase("--path=\"C:\\\\Temp\\\\test.txt\"", "C:\\\\Temp\\\\test.txt")] //four slashes test
         [TestCase("--path=\"C:\\\\Temp\\\\Temp1\\\\test.txt\"", "C:\\\\Temp\\\\Temp1\\\\test.txt")] //more than one folder level

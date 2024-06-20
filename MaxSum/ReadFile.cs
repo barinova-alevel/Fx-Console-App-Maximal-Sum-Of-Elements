@@ -3,10 +3,14 @@ using Serilog;
 
 namespace MaxSum
 {
-    //У ситуації, коли файл не пустий, але всі рядки некоректні, можна слідувати тому ж принципу, що і з пустим файлом, тільки інший exception кидати, який буде казати, що рядки були, але вони всі не числові.
-
     public class ReadFile : IReadFile
     {
+        private readonly IFileWrapper  _fileWrapper;
+        public ReadFile(IFileWrapper fileWrapper)
+        {
+            _fileWrapper = fileWrapper;
+        }
+
         public List<string> GetAllLines(string filePath)
         {
             List<string> allLines = new List<string>();
@@ -24,7 +28,7 @@ namespace MaxSum
                 else
                 {
                     Log.Information($"Reading file from {filePath}");
-                    string[] linesArray = File.ReadAllLines(filePath);
+                    string[] linesArray = _fileWrapper.ReadAllLines(filePath);
                     allLines.AddRange(linesArray);
                     return allLines;
                 }
