@@ -9,11 +9,24 @@ namespace MaxSum.UnitTests
 
     internal class GetAllLinesTests
     {
-        [TestCase("C://Temp//test.txt", "0,0,3\n1,-5,4", 2, new string[] { "0,0,3", "1,-5,4" })]//init test
-        [TestCase("C://Temp//Test//test.txt", "My content\n1,-5,4", 2, new string[] { "My content", "1,-5,4" })]//path with nested folder
-        [TestCase("C://Temp//test.txt", "2023-06-02 17:43:45\n2023-06-02 17:43:46", 2, new string[] { "2023-06-02 17:43:45", "2023-06-02 17:43:46" })] //date time content
-        [TestCase("C://Temp//Test//test.json", "{\r\n\t\"name\": \"document-merge\"\n}", 3, new string[] { "{", "\t\"name\": \"document-merge\"", "}" })] // not txt format
-        [TestCase("C://Temp//test.log", "2023-06-02 17:43:45 INFO  Field type =state\r\n2023-06-02 17:43:45 INFO  Field type =user\r\n2023-06-02 17:43:45 INFO  Field type =relationship\r\n2023-06-02 17:43:45 INFO  Field type =float", 4, new string[] { "2023-06-02 17:43:45 INFO  Field type =state", "2023-06-02 17:43:45 INFO  Field type =user", "2023-06-02 17:43:45 INFO  Field type =relationship", "2023-06-02 17:43:45 INFO  Field type =float" })] //more lines
+        [TearDown]
+        public void Cleanup()
+        {
+            try
+            {
+                Directory.Delete("C://Temp//UnitTests", true);
+            }
+            catch (Exception ex)
+            {
+                Log.Debug(ex.ToString());
+            }
+        }
+
+        [TestCase("C://Temp//UnitTests//test.txt", "0,0,3\n1,-5,4", 2, new string[] { "0,0,3", "1,-5,4" })]//init test
+        [TestCase("C://Temp//UnitTests//Test//test.txt", "My content\n1,-5,4", 2, new string[] { "My content", "1,-5,4" })]//path with nested folder
+        [TestCase("C://Temp//UnitTests//test.txt", "2023-06-02 17:43:45\n2023-06-02 17:43:46", 2, new string[] { "2023-06-02 17:43:45", "2023-06-02 17:43:46" })] //date time content
+        [TestCase("C://Temp//UnitTests//test.json", "{\r\n\t\"name\": \"document-merge\"\n}", 3, new string[] { "{", "\t\"name\": \"document-merge\"", "}" })] // not txt format
+        [TestCase("C://Temp//UnitTests//test.log", "2023-06-02 17:43:45 INFO  Field type =state\r\n2023-06-02 17:43:45 INFO  Field type =user\r\n2023-06-02 17:43:45 INFO  Field type =relationship\r\n2023-06-02 17:43:45 INFO  Field type =float", 4, new string[] { "2023-06-02 17:43:45 INFO  Field type =state", "2023-06-02 17:43:45 INFO  Field type =user", "2023-06-02 17:43:45 INFO  Field type =relationship", "2023-06-02 17:43:45 INFO  Field type =float" })] //more lines
 
         public void CheckGetAllLines(string path, string content, int count, string[] array)
         {
@@ -45,8 +58,8 @@ namespace MaxSum.UnitTests
                 "two",
                 "3"
             };
-            string lowerCasePath = "C://Temp//123lowercasepath.txt";
-            string PascalCasePath = "C://Temp//LowerCasePath.txt";
+            string lowerCasePath = "C://Temp//UnitTests//lowercasepath.txt";
+            string PascalCasePath = "C://Temp//UnitTests//LowerCasePath.txt";
             string content = "one\ntwo\n3";
 
             //Act
@@ -59,8 +72,6 @@ namespace MaxSum.UnitTests
                 Assert.That(result.Count(), Is.EqualTo(3));
                 Assert.That(result, Is.EqualTo(expected));
             });
-            // add TearDown method (to remove lowerCasePath file)
-            //force performing other test cases if one on them has failed.
         }
 
         [Test]
@@ -81,7 +92,7 @@ namespace MaxSum.UnitTests
             //Arrange
             MockFileWrapper mockFileWrapper = new MockFileWrapper(false);
             ReadFile readFile = new ReadFile(mockFileWrapper);
-            string path = "C://Temp//test.txt";
+            string path = "C://Temp//UnitTests//test.txt";
 
             //Act
             CreateFile(path, String.Empty);
@@ -96,7 +107,7 @@ namespace MaxSum.UnitTests
             //Arrange
             MockFileWrapper mockFileWrapper = new MockFileWrapper(true);
             ReadFile readFile = new ReadFile(mockFileWrapper);
-            string path = "C://TestAccess.txt";
+            string path = "C://Temp//UnitTests//TestAccess.txt";
 
             //Act
             CreateFile(path, String.Empty);
