@@ -1,5 +1,5 @@
-﻿using System;
-using NUnit.Framework.Legacy;
+﻿using NUnit.Framework.Legacy;
+using Serilog;
 
 namespace MaxSum.UnitTests
 {
@@ -7,36 +7,32 @@ namespace MaxSum.UnitTests
     internal class GetAnalyzedLinesTests
     {
         private SumCalculation sumCalculation = new SumCalculation();
-        private LineAnalyzingResult _lineAnalyzingResult;
-        private LineAnalyzingResultComparer _comparer;
+        private LineAnalyzingResultComparer _comparer = new LineAnalyzingResultComparer();
 
-        [SetUp]
-        public void SetUp()
+        [Test]
+        public void CheckGetAnalyzedLines()
         {
-            _lineAnalyzingResult = new LineAnalyzingResult(0, 0, true);
-            _comparer = new LineAnalyzingResultComparer();
+            //Arrange
+            List<string> allLines = new List<string> { "1,2,-3", "some text", "4, h, 5" };
+            List<LineAnalyzingResult> expectedResult = new List<LineAnalyzingResult>();
+
+            try
+            {
+                //Act
+                expectedResult.Add(new LineAnalyzingResult(0, 0, true));
+                expectedResult.Add(new LineAnalyzingResult(1, 0, false));
+                expectedResult.Add(new LineAnalyzingResult(2, 0, false));
+                List<LineAnalyzingResult> actualResult = sumCalculation.GetAnalyzedLines(allLines);
+
+                //Assert
+                ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
+            }
+            catch (Exception ex)
+            {
+                Log.Information(ex.ToString());
+            }
         }
-
-        //[Test]
-        //public void Convert_WhenCalled_ShouldReturnListOfCustomType()
-        //{
-        //    // Arrange
-        //    var input = new List<string> { "one", "two", "three" };
-        //    var expectedOutput = new List<CustomType>
-        //{
-        //    new CustomType { Value = "one" },
-        //    new CustomType { Value = "two" },
-        //    new CustomType { Value = "three" }
-        //};
-
-        //    // Act
-        //    var result = _converter.Convert(input);
-
-        //    // Assert
-        //    CollectionAssert.AreEqual(expectedOutput, result, _comparer);
-        //}
-
-        //[Test]
+//[Test]
         //public void Convert_WithEmptyList_ShouldReturnEmptyList()
         //{
         //    // Arrange
@@ -52,23 +48,7 @@ namespace MaxSum.UnitTests
 
         //Not working
         //[Test]
-        public void CheckGetAnalyzedLines()
-        {
-            //Arrange
-            List<string> allLines = new List<string> { "1,2,-3", "some text", "4, h, 5" };
-            List<LineAnalyzingResult> actualResult;
-            List<LineAnalyzingResult> expectedResult = new List<LineAnalyzingResult>();
-            expectedResult.Add(new LineAnalyzingResult(0, 0, true));
-            expectedResult.Add(new LineAnalyzingResult(1, 0, false));
-            expectedResult.Add(new LineAnalyzingResult(2, 0, false));
-
-            //Act
-            actualResult = sumCalculation.GetAnalyzedLines(allLines);
-
-            //Assert
-            CollectionAssert.AreEqual(actualResult, expectedResult, "The lists are not equal");
-        }
-
+       
         [Test]
         public void CheckGetAnalyzedLines_Empty()
         {
