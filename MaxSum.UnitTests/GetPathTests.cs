@@ -6,13 +6,13 @@ namespace MaxSum.UnitTests
     {
         InputOutput inputOutput = new InputOutput();
 
-        [TestCase("--path=\"C:\\Temp\\test.txt\"", "C:\\Temp\\test.txt")] //valid file path
-        [TestCase("--path=\"C:\\\\Temp\\\\test.txt\"", "C:\\\\Temp\\\\test.txt")] //four slashes test
-        [TestCase("--path=\"C:\\\\Temp\\\\Temp1\\\\test.txt\"", "C:\\\\Temp\\\\Temp1\\\\test.txt")] //more than one folder level
-        [TestCase("--path=\"C:/Temp/test.txt\"", "C:/Temp/test.txt")] //path with forward slash
-        [TestCase("--path=\"C://Temp//test.txt\"", "C://Temp//test.txt")] //path with forward slashes
-        [TestCase("--path=\"C:\\Temp\\test.txt\"", "C:\\Temp\\test.txt")] //path with backward slash
-        [TestCase("--path=\"C:\\Temp\\notExistedFile.txt\"", "C:\\Temp\\notExistedFile.txt")] //file has not existed
+        [TestCase("--path=\"C:\\Temp\\UnitTests\\test.txt\"", "C:\\Temp\\UnitTests\\test.txt")] //valid file path
+        [TestCase("--path=\"C:\\\\Temp\\\\UnitTests\\\\test.txt\"", "C:\\\\Temp\\\\UnitTests\\\\test.txt")] //four slashes test
+        [TestCase("--path=\"C:\\\\Temp\\\\UnitTests\\\\Temp1\\\\test.txt\"", "C:\\\\Temp\\\\UnitTests\\\\Temp1\\\\test.txt")] //more than one folder level
+        [TestCase("--path=\"C:/Temp/UnitTests/test.txt\"", "C:/Temp/UnitTests/test.txt")] //path with forward slash
+        [TestCase("--path=\"C://Temp//UnitTests//test.txt\"", "C://Temp//UnitTests//test.txt")] //path with forward slashes
+        [TestCase("--path=\"C:\\Temp\\UnitTests\\test.txt\"", "C:\\Temp\\UnitTests\\test.txt")] //path with backward slash
+        [TestCase("--path=\"C:\\Temp\\UnitTests\\notExistedFile.txt\"", "C:\\Temp\\UnitTests\\notExistedFile.txt")] //file has not existed
         public void CheckGetPath_Positive(string providedFilePathArgument, string expected)
         {
             //Arrange

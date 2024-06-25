@@ -1,11 +1,54 @@
-﻿using NUnit.Framework.Legacy;
+﻿using System;
+using NUnit.Framework.Legacy;
 
 namespace MaxSum.UnitTests
 {
     [TestFixture]
     internal class GetAnalyzedLinesTests
     {
-        SumCalculation sumCalculation = new SumCalculation();
+        private SumCalculation sumCalculation = new SumCalculation();
+        private LineAnalyzingResult _lineAnalyzingResult;
+        private LineAnalyzingResultComparer _comparer;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _lineAnalyzingResult = new LineAnalyzingResult(0, 0, true);
+            _comparer = new LineAnalyzingResultComparer();
+        }
+
+        //[Test]
+        //public void Convert_WhenCalled_ShouldReturnListOfCustomType()
+        //{
+        //    // Arrange
+        //    var input = new List<string> { "one", "two", "three" };
+        //    var expectedOutput = new List<CustomType>
+        //{
+        //    new CustomType { Value = "one" },
+        //    new CustomType { Value = "two" },
+        //    new CustomType { Value = "three" }
+        //};
+
+        //    // Act
+        //    var result = _converter.Convert(input);
+
+        //    // Assert
+        //    CollectionAssert.AreEqual(expectedOutput, result, _comparer);
+        //}
+
+        //[Test]
+        //public void Convert_WithEmptyList_ShouldReturnEmptyList()
+        //{
+        //    // Arrange
+        //    var input = new List<string>();
+        //    var expectedOutput = new List<CustomType>();
+
+        //    // Act
+        //    var result = _converter.Convert(input);
+
+        //    // Assert
+        //    CollectionAssert.AreEqual(expectedOutput, result, _comparer);
+        //}
 
         //Not working
         //[Test]

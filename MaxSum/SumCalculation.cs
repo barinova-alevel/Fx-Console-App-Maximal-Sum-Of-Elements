@@ -16,20 +16,20 @@ namespace MaxSum
             {
                 foreach (LineAnalyzingResult line in lines)
                 {
-                    if (line.isNumeric)
+                    if (line.IsNumeric)
                     {
-                        double lineSum = line.sumOfElements;
+                        double lineSum = line.SumOfElements;
                         if (lineSum > _maxSum)
                         {
                             _maxSum = lineSum;
-                            numberLineWithMaxSum = line.indexOfLine + 1;
+                            numberLineWithMaxSum = line.IndexOfLine + 1;
                         }
                         counterOfNumericLines++;
                     }
                     else
                     {
-                        Log.Debug($"Adding line {line.indexOfLine + 1} to list of non numeric");
-                        _listOfNonNumericLines.Add(line.indexOfLine + 1);
+                        Log.Debug($"Adding line {line.IndexOfLine + 1} to list of non numeric");
+                        _listOfNonNumericLines.Add(line.IndexOfLine + 1);
                     }
                 }
 

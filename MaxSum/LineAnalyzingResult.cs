@@ -1,16 +1,18 @@
-﻿namespace MaxSum
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace MaxSum
 {
     public class LineAnalyzingResult
     {
-        public int indexOfLine;
-        public double sumOfElements;
-        public bool isNumeric;
+        public int IndexOfLine;
+        public double SumOfElements;
+        public bool IsNumeric;
 
         public LineAnalyzingResult(int lineIndex, double sum, bool numericLine)
         {
-            indexOfLine = lineIndex;
-            sumOfElements = sum;
-            isNumeric = numericLine;
+            IndexOfLine = lineIndex;
+            SumOfElements = sum;
+            IsNumeric = numericLine;
         }
     }
 }
