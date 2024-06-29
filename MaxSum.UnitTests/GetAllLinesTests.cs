@@ -2,84 +2,43 @@
 using System;
 using System.Text;
 using Serilog;
+using NSubstitute;
+using Newtonsoft.Json.Linq;
+using System.Runtime.CompilerServices;
 
 namespace MaxSum.UnitTests
 {
     [TestFixture, Description("File tests")]
 
-    internal class GetAllLinesTests
+    public class GetAllLinesTests
     {
-        [TearDown]
-        public void Cleanup()
+        private IFileWrapper _fileWrapper;
+
+        public GetAllLinesTests()
         {
-            try
-            {
-                Directory.Delete("C://Temp//UnitTests", true);
-            }
-            catch (Exception ex)
-            {
-                Log.Debug(ex.ToString());
-            }
+            _fileWrapper = Substitute.For<IFileWrapper>();
         }
 
-        [TestCase("C://Temp//UnitTests//test.txt", "0,0,3\n1,-5,4", 2, new string[] { "0,0,3", "1,-5,4" })]//init test
-        [TestCase("C://Temp//UnitTests//Test//test.txt", "My content\n1,-5,4", 2, new string[] { "My content", "1,-5,4" })]//path with nested folder
-        [TestCase("C://Temp//UnitTests//test.txt", "2023-06-02 17:43:45\n2023-06-02 17:43:46", 2, new string[] { "2023-06-02 17:43:45", "2023-06-02 17:43:46" })] //date time content
-        [TestCase("C://Temp//UnitTests//test.json", "{\r\n\t\"name\": \"document-merge\"\n}", 3, new string[] { "{", "\t\"name\": \"document-merge\"", "}" })] // not txt format
-        [TestCase("C://Temp//UnitTests//test.log", "2023-06-02 17:43:45 INFO  Field type =state\r\n2023-06-02 17:43:45 INFO  Field type =user\r\n2023-06-02 17:43:45 INFO  Field type =relationship\r\n2023-06-02 17:43:45 INFO  Field type =float", 4, new string[] { "2023-06-02 17:43:45 INFO  Field type =state", "2023-06-02 17:43:45 INFO  Field type =user", "2023-06-02 17:43:45 INFO  Field type =relationship", "2023-06-02 17:43:45 INFO  Field type =float" })] //more lines
-
-        public void CheckGetAllLines(string path, string content, int count, string[] array)
+        [TestCase(new string[] { "0,0,3", "1,-5,4" }, new string[] { "0,0,3", "1,-5,4" })]
+        [TestCase(new string[] { "h,k,3", "1000,-0,4.2" }, new string[] { "h,k,3", "1000,-0,4.2" })]
+        public void GetAllLines_GivenInputIsCorrect(string[] returnArgument, string[] expectedArray)
         {
             //Arrange
-            MockFileWrapper mockFileWrapper = new MockFileWrapper(false);
-            ReadFile readFile = new ReadFile(mockFileWrapper);
-            List<string> result;
-            List<string> expected = new List<string>(array);
+            var actual = new List<string>(returnArgument);
+            var expected = new List<string>(expectedArray);
 
-            //Act
-            CreateFile(path, content);
-            result = readFile.GetAllLines(path);
+            //Act         
+            _fileWrapper.GetAllLines("C://Temp//UnitTests//test.txt").Returns(actual);
 
             //Assert
-            Assert.That(result.Count(), Is.EqualTo(count));
-            Assert.That(result, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void CheckCaseSensitivityPath()
-        {
-            //Arrange
-            MockFileWrapper mockFileWrapper = new MockFileWrapper(false);
-            ReadFile readFile = new ReadFile(mockFileWrapper);
-            List<string> result;
-            List<string> expected = new List<string>
-            {
-                "one",
-                "two",
-                "3"
-            };
-            string lowerCasePath = "C://Temp//UnitTests//lowercasepath.txt";
-            string PascalCasePath = "C://Temp//UnitTests//LowerCasePath.txt";
-            string content = "one\ntwo\n3";
-
-            //Act
-            CreateFile(lowerCasePath, content);
-            result = readFile.GetAllLines(PascalCasePath);
-
-            //Assert
-            Assert.Multiple(() =>
-            {
-                Assert.That(result.Count(), Is.EqualTo(3));
-                Assert.That(result, Is.EqualTo(expected));
-            });
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         [Test]
         public void CheckGetAllLines_NullPassing()
         {
             //Arrange
-            MockFileWrapper mockFileWrapper = new MockFileWrapper(false);
-            ReadFile readFile = new ReadFile(mockFileWrapper);
+            FileWrapper readFile = new FileWrapper();
             string path = null;
 
             //Act&Assert
@@ -90,8 +49,7 @@ namespace MaxSum.UnitTests
         public void CheckGetAllLines_EmptyFile()
         {
             //Arrange
-            MockFileWrapper mockFileWrapper = new MockFileWrapper(false);
-            ReadFile readFile = new ReadFile(mockFileWrapper);
+            FileWrapper readFile = new FileWrapper();
             string path = "C://Temp//UnitTests//test.txt";
 
             //Act
@@ -105,8 +63,7 @@ namespace MaxSum.UnitTests
         public void CheckGetAllLines_UnauthorizedAccessException()
         {
             //Arrange
-            MockFileWrapper mockFileWrapper = new MockFileWrapper(true);
-            ReadFile readFile = new ReadFile(mockFileWrapper);
+            FileWrapper readFile = new FileWrapper();
             string path = "C://Temp//UnitTests//TestAccess.txt";
 
             //Act

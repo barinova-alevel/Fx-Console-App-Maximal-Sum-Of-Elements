@@ -1,4 +1,5 @@
 ﻿
+
 namespace MaxSum.UnitTests
 {
     public class MockFileWrapper : IFileWrapper
@@ -9,6 +10,12 @@ namespace MaxSum.UnitTests
         {
             _throwUnauthorizedAccessException = throwUnauthorizedAccessException;
         }
+
+        public List<string> GetAllLines(string path)
+        {
+            throw new NotImplementedException();
+        }
+
         public string[] ReadAllLines(string path)
         {
             if (_throwUnauthorizedAccessException)

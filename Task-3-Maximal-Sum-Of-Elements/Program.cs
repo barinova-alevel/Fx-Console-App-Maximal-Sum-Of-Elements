@@ -21,7 +21,7 @@ public class Program
         {
             IFileWrapper fileWrapper = new FileWrapper();
             InputOutput output = new InputOutput();
-            ReadFile targetFile = new ReadFile(fileWrapper);
+            //ReadFile targetFile = new ReadFile(fileWrapper);
             SumCalculation sumCalculation = new SumCalculation();
 
             Console.WriteLine("Would you like to read a file? (yes/no): ");
@@ -42,7 +42,8 @@ public class Program
                 string filePath = output.GetPath(filePathArg);
                 //string filePath = output.GetPath("--path=\"C:\\Temp\\Test.txt\"");
                 //List<string> allLines = targetFile.GetAllLines(filePath);
-                List<string> allLines = targetFile.GetAllLines("C:\\Temp\\TestAccess.txt");
+                //List<string> allLines = fileWrapper.GetAllLines("C:\\Temp\\TestAccess.txt");
+                List<string> allLines = fileWrapper.GetAllLines("C:\\Temp\\Test.txt");
                 //List<string> allLines = targetFile.GetAllLines("C:\\Temp\\Test.txt");
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
                 int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
