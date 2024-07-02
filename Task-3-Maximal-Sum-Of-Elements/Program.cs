@@ -46,6 +46,7 @@ public class Program
                 List<string> allLines = fileWrapper.GetAllLines("C:\\Temp\\Test.txt");
                 //List<string> allLines = targetFile.GetAllLines("C:\\Temp\\Test.txt");
                 List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
+                //List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(null);
                 int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
                 double maxSum = sumCalculation.GetMaxSum(lineWithMaxSum);
                 int numberOfBrokenLines = sumCalculation.GetNumberOfNonNumericLines();

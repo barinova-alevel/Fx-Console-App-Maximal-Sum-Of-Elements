@@ -28,25 +28,25 @@ namespace MaxSum
                     }
                     else
                     {
-                        Log.Debug($"Adding line {line.IndexOfLine + 1} to list of non numeric");
+                        Log.Debug($"Adding line {line.IndexOfLine + 1} to list of non numeric.");
                         _listOfNonNumericLines.Add(line.IndexOfLine + 1);
                     }
                 }
 
                 if (counterOfNumericLines == 0)
                 {
-                    throw new AllLinesNonNumericException("All lines are non numeric");
+                    throw new AllLinesNonNumericException("All lines are non numeric.");
                 }
                 else
                 {
                     Log.Information($"Line with max sum is {numberLineWithMaxSum}");
                     return numberLineWithMaxSum;
                 }
-            } 
-            
+            }
+
             catch (AllLinesNonNumericException ex)
             {
-                Log.Information($"There is no lines to calculate max sum {ex.Message}");
+                Log.Information($"There is no lines to calculate max sum. {ex.Message}");
                 return -1;
             }
         }
@@ -75,21 +75,22 @@ namespace MaxSum
                         analyzedLines.Add(new LineAnalyzingResult(lineIndex, sum, isNumbers));
                         lineIndex++;
                     }
-                    return analyzedLines;
                 }
-                else
+                else if (allLines == null)
                 {
-                    Log.Information("Max sum can't be calculated for an empty or not existed file.");
-                    Console.WriteLine("Press any key to close the program...");
-                    Console.ReadKey();
-                    Environment.Exit(0);
-                    return analyzedLines;
+                    throw new ArgumentNullException("Input cannot be null.");
                 }
+                return analyzedLines;
+            }
+            catch (ArgumentNullException ex)
+            {
+                Log.Information($"Max sum can't be calculated for not existed file. {ex.Message}");
+                return analyzedLines;
             }
             catch (Exception ex)
             {
-                Log.Error($"An error occurs while analyzing lines: {ex.Message}, {ex.StackTrace}");
-                throw ex;
+                Log.Error($"An error occurs while analyzing lines: {ex.Message}");
+                return analyzedLines;
             }
         }
 
@@ -107,15 +108,15 @@ namespace MaxSum
 
         public double GetMaxSum(int lineWithMaxSum)
         {
-                if (lineWithMaxSum != -1)
-                {
-                    Log.Information($"Max sum: {_maxSum}");
-                    return _maxSum;
-                }
-                else
-                {
+            if (lineWithMaxSum != -1)
+            {
+                Log.Information($"Max sum: {_maxSum}");
                 return _maxSum;
-                }
+            }
+            else
+            {
+                return _maxSum;
+            }
         }
 
         private double LineSumCalculation(string line)

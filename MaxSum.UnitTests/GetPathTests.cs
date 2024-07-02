@@ -13,7 +13,7 @@ namespace MaxSum.UnitTests
         [TestCase("--path=\"C://Temp//UnitTests//test.txt\"", "C://Temp//UnitTests//test.txt")] //path with forward slashes
         [TestCase("--path=\"C:\\Temp\\UnitTests\\test.txt\"", "C:\\Temp\\UnitTests\\test.txt")] //path with backward slash
         [TestCase("--path=\"C:\\Temp\\UnitTests\\notExistedFile.txt\"", "C:\\Temp\\UnitTests\\notExistedFile.txt")] //file has not existed
-        public void CheckGetPath_Positive(string providedFilePathArgument, string expected)
+        public void GetPath_Positive(string providedFilePathArgument, string expected)
         {
             //Arrange
             string result;
@@ -27,7 +27,7 @@ namespace MaxSum.UnitTests
 
         [TestCase("--path=\"null\"")] //path is null
         [TestCase("123:/folder")] //not correct format path
-        public void CheckGetPath_Negative(string providedFilePathArgument)
+        public void GetPath_Negative(string providedFilePathArgument)
         {
             //Act & Assert
             Assert.DoesNotThrow(() => inputOutput.GetPath(providedFilePathArgument));

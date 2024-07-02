@@ -10,66 +10,45 @@ namespace MaxSum.UnitTests
         private LineAnalyzingResultComparer _comparer = new LineAnalyzingResultComparer();
 
         [Test]
-        public void CheckGetAnalyzedLines()
+        public void GetAnalyzedLines_Positive()
         {
             //Arrange
             List<string> allLines = new List<string> { "1,2,-3", "some text", "4, h, 5" };
             List<LineAnalyzingResult> expectedResult = new List<LineAnalyzingResult>();
 
-            try
-            {
-                //Act
-                expectedResult.Add(new LineAnalyzingResult(0, 0, true));
-                expectedResult.Add(new LineAnalyzingResult(1, 0, false));
-                expectedResult.Add(new LineAnalyzingResult(2, 0, false));
-                List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
+            //Act
+            expectedResult.Add(new LineAnalyzingResult(0, 0, true));
+            expectedResult.Add(new LineAnalyzingResult(1, 0, false));
+            expectedResult.Add(new LineAnalyzingResult(2, 0, false));
+            List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
 
-                //Assert
-                ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
-            }
-            catch (Exception ex)
-            {
-                Log.Information(ex.ToString());
-            }
+            //Assert
+            ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
         }
 
         [Test]
-        public void CheckGetAnalyzedLines_Empty()
+        public void GetAnalyzedLines_EmptyList()
         {
             //Arrange
             List<string> allLines = new List<string>();
             List<LineAnalyzingResult> expectedResult = new List<LineAnalyzingResult>();
 
-            try
-            {
-                //Act
-                List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
+            //Act
+            List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
 
-                //Assert
-                ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
-            }
-            catch (Exception ex)
-            {
-                Log.Information(ex.ToString());
-            }
+            //Assert
+            ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
         }
 
         [Test]
-        public void CheckGetAnalyzedLines_Null()
+        public void GetAnalyzedLines_ListIsNull()
         {
-            try
-            {
-                //Act & Assert
-                Assert.DoesNotThrow(() =>
-                {
-                    var result = _sumCalculation.GetAnalyzedLines(null);
-                }
-                );
-            }
-            catch (Exception ex)
-            {
-                Log.Information(ex.ToString());
-            }
+            //Arrange
+            List<string> inputList = null;
+
+            //Act & Assert
+            Assert.DoesNotThrow(() =>
+            _sumCalculation.GetAnalyzedLines(inputList));
         }
     }
 }
