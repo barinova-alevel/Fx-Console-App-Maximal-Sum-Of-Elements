@@ -3,15 +3,35 @@ using Serilog;
 
 namespace MaxSum
 {
-    public class SumCalculation
+    public class SumCalculationResult
     {
-        private double _maxSum = -1.7976931348623157E+308;
-        private List<int> _listOfNonNumericLines = new List<int>();
+        private double _maxSum;
+        private List<int> _listOfNonNumericLines;
+        private int _lineWithMaxSum;
+        FileWrapper _fileWrapper = new FileWrapper();
 
-        public int GetLineWithMaxSum(List<LineAnalyzingResult> lines)
+        public SumCalculationResult(double maxSum, int lineWithMaxSum, List<int> listOfNonNumericLines)
         {
-            int numberLineWithMaxSum = 0;
+            _maxSum = maxSum;
+            _lineWithMaxSum = lineWithMaxSum;
+            _listOfNonNumericLines = listOfNonNumericLines;
+        }
+
+        public SumCalculationResult AnalizeLines(string path)
+        {
+            List<string> allLines = _fileWrapper.GetAllLines(path);
+            List<LineAnalyzingResult> analizedLines = GetAnalyzedLines(allLines);
+            SumCalculationResult result = GetLineWithMaxSum(analizedLines);
+            return result;
+        }
+
+        private SumCalculationResult GetLineWithMaxSum(List<LineAnalyzingResult> lines)
+        {
+            int lineWithMaxSum = 0;
             int counterOfNumericLines = 0;
+            double maxSum = -1.7976931348623157E+308;
+            List<int> listOfNonNumericLines = new List<int>();
+
             try
             {
                 foreach (LineAnalyzingResult line in lines)
@@ -19,17 +39,17 @@ namespace MaxSum
                     if (line.IsNumeric)
                     {
                         double lineSum = line.SumOfElements;
-                        if (lineSum > _maxSum)
+                        if (lineSum > maxSum)
                         {
-                            _maxSum = lineSum;
-                            numberLineWithMaxSum = line.IndexOfLine + 1;
+                            maxSum = lineSum;
+                            lineWithMaxSum = line.IndexOfLine + 1;
                         }
                         counterOfNumericLines++;
                     }
                     else
                     {
                         Log.Debug($"Adding line {line.IndexOfLine + 1} to list of non numeric.");
-                        _listOfNonNumericLines.Add(line.IndexOfLine + 1);
+                        listOfNonNumericLines.Add(line.IndexOfLine + 1);
                     }
                 }
 
@@ -39,19 +59,19 @@ namespace MaxSum
                 }
                 else
                 {
-                    Log.Information($"Line with max sum is {numberLineWithMaxSum}");
-                    return numberLineWithMaxSum;
+                    Log.Information($"Line with max sum is {lineWithMaxSum}");
+                    return new SumCalculationResult(maxSum, lineWithMaxSum, listOfNonNumericLines);
                 }
             }
 
             catch (AllLinesNonNumericException ex)
             {
                 Log.Information($"There is no lines to calculate max sum. {ex.Message}");
-                return -1;
+                return new SumCalculationResult(0, -1, listOfNonNumericLines);
             }
         }
 
-        public List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
+        private List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
         {
             List<LineAnalyzingResult> analyzedLines = new List<LineAnalyzingResult>();
             int lineIndex = 0;
@@ -94,28 +114,28 @@ namespace MaxSum
             }
         }
 
-        public int GetNumberOfNonNumericLines()
+        public int GetNumberOfNonNumericLines(SumCalculationResult obj)
         {
-            int result = _listOfNonNumericLines.Count;
+            int result = obj._listOfNonNumericLines.Count;
             Log.Information($"Number of non numeric lines is {result}");
             return result;
         }
 
-        public List<int> GetListOfNumbersNonNumericLines()
+        public List<int> GetListOfNumbersNonNumericLines(SumCalculationResult obj)
         {
-            return _listOfNonNumericLines;
+            return obj._listOfNonNumericLines;
         }
 
-        public double GetMaxSum(int lineWithMaxSum)
+        public double GetMaxSum(SumCalculationResult obj)
         {
-            if (lineWithMaxSum != -1)
+            if (obj._lineWithMaxSum != -1)
             {
-                Log.Information($"Max sum: {_maxSum}");
-                return _maxSum;
+                Log.Information($"Max sum: {_lineWithMaxSum}");
+                return _lineWithMaxSum;
             }
             else
             {
-                return _maxSum;
+                return _lineWithMaxSum;
             }
         }
 

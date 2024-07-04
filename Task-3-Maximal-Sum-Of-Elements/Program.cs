@@ -19,10 +19,8 @@ public class Program
         string filePathArg = args.FirstOrDefault(arg => arg.StartsWith("--path="));
         while (true)
         {
-            IFileWrapper fileWrapper = new FileWrapper();
             InputOutput output = new InputOutput();
-            //ReadFile targetFile = new ReadFile(fileWrapper);
-            SumCalculation sumCalculation = new SumCalculation();
+            SumCalculationResult sumCalculationResult = new SumCalculationResult(0, -1, new List<int>());
 
             Console.WriteLine("Would you like to read a file? (yes/no): ");
             string userInput = Console.ReadLine().ToLower();
@@ -40,17 +38,10 @@ public class Program
             else if (userInput == "yes")
             {
                 string filePath = output.GetPath(filePathArg);
-                //string filePath = output.GetPath("--path=\"C:\\Temp\\Test.txt\"");
-                //List<string> allLines = targetFile.GetAllLines(filePath);
-                //List<string> allLines = fileWrapper.GetAllLines("C:\\Temp\\TestAccess.txt");
-                List<string> allLines = fileWrapper.GetAllLines("C:\\Temp\\Test.txt");
-                //List<string> allLines = targetFile.GetAllLines("C:\\Temp\\Test.txt");
-                List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(allLines);
-                //List<LineAnalyzingResult> analizedLines = sumCalculation.GetAnalyzedLines(null);
-                int lineWithMaxSum = sumCalculation.GetLineWithMaxSum(analizedLines);
-                double maxSum = sumCalculation.GetMaxSum(lineWithMaxSum);
-                int numberOfBrokenLines = sumCalculation.GetNumberOfNonNumericLines();
-                List<int> listOfNumbersNonNumericLines = sumCalculation.GetListOfNumbersNonNumericLines();
+                SumCalculationResult result = sumCalculationResult.AnalizeLines(filePath);
+
+                int numberOfBrokenLines = sumCalculationResult.GetNumberOfNonNumericLines(result);
+                List<int> listOfNumbersNonNumericLines = sumCalculationResult.GetListOfNumbersNonNumericLines(result);
 
                 Log.Information("List of non numeric lines:");
                 output.PrintNumbersOfLines(listOfNumbersNonNumericLines);
