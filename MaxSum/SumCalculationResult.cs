@@ -5,21 +5,21 @@ namespace MaxSum
 {
     public class SumCalculationResult
     {
-        private double _maxSum;
-        private List<int> _listOfNonNumericLines;
-        private int _lineWithMaxSum;
-        FileWrapper _fileWrapper = new FileWrapper();
+        public double MaxSum;
+        public List<int> ListOfNonNumericLines;
+        public int LineWithMaxSum;
+        public FileWrapper FileWrapperField = new FileWrapper();
 
         public SumCalculationResult(double maxSum, int lineWithMaxSum, List<int> listOfNonNumericLines)
         {
-            _maxSum = maxSum;
-            _lineWithMaxSum = lineWithMaxSum;
-            _listOfNonNumericLines = listOfNonNumericLines;
+            MaxSum = maxSum;
+            LineWithMaxSum = lineWithMaxSum;
+            ListOfNonNumericLines = listOfNonNumericLines;
         }
 
         public SumCalculationResult AnalizeLines(string path)
         {
-            List<string> allLines = _fileWrapper.GetAllLines(path);
+            List<string> allLines = FileWrapperField.GetAllLines(path);
             List<LineAnalyzingResult> analizedLines = GetAnalyzedLines(allLines);
             SumCalculationResult result = GetLineWithMaxSum(analizedLines);
             return result;
@@ -116,26 +116,26 @@ namespace MaxSum
 
         public int GetNumberOfNonNumericLines(SumCalculationResult obj)
         {
-            int result = obj._listOfNonNumericLines.Count;
+            int result = obj.ListOfNonNumericLines.Count;
             Log.Information($"Number of non numeric lines is {result}");
             return result;
         }
 
         public List<int> GetListOfNumbersNonNumericLines(SumCalculationResult obj)
         {
-            return obj._listOfNonNumericLines;
+            return obj.ListOfNonNumericLines;
         }
 
         public double GetMaxSum(SumCalculationResult obj)
         {
-            if (obj._lineWithMaxSum != -1)
+            if (obj.LineWithMaxSum != -1)
             {
-                Log.Information($"Max sum: {_lineWithMaxSum}");
-                return _lineWithMaxSum;
+                Log.Information($"Max sum: {LineWithMaxSum}");
+                return LineWithMaxSum;
             }
             else
             {
-                return _lineWithMaxSum;
+                return LineWithMaxSum;
             }
         }
 

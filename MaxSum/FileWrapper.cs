@@ -43,7 +43,6 @@ namespace MaxSum
             catch (EmptyFileException ex)
             {
                 Log.Information($"Failed to read any line from the file. {ex.Message}");
-                Log.Debug($"{ex.StackTrace}");
                 return allLines;
             }
 

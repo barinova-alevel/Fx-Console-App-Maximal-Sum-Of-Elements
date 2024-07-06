@@ -10,11 +10,12 @@ namespace MaxSum.UnitTests
 {
     [TestFixture, Description("File tests")]
 
-    public class GetAllLinesTests
+    public class GetAllLinesTests_ToBeDeleted
     {
         private IFileWrapper _fileWrapper;
 
-        public GetAllLinesTests()
+        //!!!! not correct logic 
+        public GetAllLinesTests_ToBeDeleted()
         {
             _fileWrapper = Substitute.For<IFileWrapper>();
         }

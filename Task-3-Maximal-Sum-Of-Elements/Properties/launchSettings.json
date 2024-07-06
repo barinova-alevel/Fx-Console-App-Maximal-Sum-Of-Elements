@@ -1,8 +1,7 @@
 {
   "profiles": {
     "Task-3-Maximal-Sum-Of-Elements": {
-      "commandName": "Project",
-      "commandLineArgs": "--path=\"C://Temp/test.txt\""
+      "commandName": "Project"
     }
   }
 }
