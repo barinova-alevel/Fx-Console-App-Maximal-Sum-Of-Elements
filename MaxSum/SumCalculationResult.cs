@@ -8,7 +8,7 @@ namespace MaxSum
         public double MaxSum;
         public List<int> ListOfNonNumericLines;
         public int LineWithMaxSum;
-        public FileWrapper FileWrapperField = new FileWrapper();
+        public IFileWrapper FileWrapperField = new FileWrapper();
 
         public SumCalculationResult(double maxSum, int lineWithMaxSum, List<int> listOfNonNumericLines)
         {
@@ -21,11 +21,11 @@ namespace MaxSum
         {
             List<string> allLines = FileWrapperField.GetAllLines(path);
             List<LineAnalyzingResult> analizedLines = GetAnalyzedLines(allLines);
-            SumCalculationResult result = GetLineWithMaxSum(analizedLines);
+            SumCalculationResult result = GetCalculationResult(analizedLines);
             return result;
         }
 
-        private SumCalculationResult GetLineWithMaxSum(List<LineAnalyzingResult> lines)
+        public SumCalculationResult GetCalculationResult(List<LineAnalyzingResult> lines)
         {
             int lineWithMaxSum = 0;
             int counterOfNumericLines = 0;
@@ -71,7 +71,7 @@ namespace MaxSum
             }
         }
 
-        private List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
+        public List<LineAnalyzingResult> GetAnalyzedLines(List<string> allLines)
         {
             List<LineAnalyzingResult> analyzedLines = new List<LineAnalyzingResult>();
             int lineIndex = 0;
@@ -116,14 +116,30 @@ namespace MaxSum
 
         public int GetNumberOfNonNumericLines(SumCalculationResult obj)
         {
-            int result = obj.ListOfNonNumericLines.Count;
-            Log.Information($"Number of non numeric lines is {result}");
-            return result;
+            if (obj != null)
+            {
+                int result = obj.ListOfNonNumericLines.Count;
+                Log.Information($"Number of non numeric lines is {result}");
+                return result;
+            }
+            else
+            {
+                Log.Information("There is no non numeric lines");
+                return 0;
+            }
         }
 
         public List<int> GetListOfNumbersNonNumericLines(SumCalculationResult obj)
         {
-            return obj.ListOfNonNumericLines;
+            if (obj != null)
+            {
+                return obj.ListOfNonNumericLines;
+            }
+            else
+            {
+                Log.Information("There is no object to get list of non numeric lines.");
+                return new List<int> { 0 };
+            }
         }
 
         public double GetMaxSum(SumCalculationResult obj)

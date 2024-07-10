@@ -45,6 +45,7 @@ public class Program
 
                 Log.Information("List of non numeric lines:");
                 output.PrintNumbersOfLines(listOfNumbersNonNumericLines);
+
             }
         }
     }

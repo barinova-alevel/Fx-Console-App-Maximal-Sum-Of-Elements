@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework.Legacy;
-using Serilog;
 
 namespace MaxSum.UnitTests
 {
@@ -20,10 +19,10 @@ namespace MaxSum.UnitTests
             expectedResult.Add(new LineAnalyzingResult(0, 0, true));
             expectedResult.Add(new LineAnalyzingResult(1, 0, false));
             expectedResult.Add(new LineAnalyzingResult(2, 0, false));
-            //List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
+            List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
 
             //Assert
-            //ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
+            ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
         }
 
         [Test]
@@ -34,10 +33,10 @@ namespace MaxSum.UnitTests
             List<LineAnalyzingResult> expectedResult = new List<LineAnalyzingResult>();
 
             //Act
-            // List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
+            List<LineAnalyzingResult> actualResult = _sumCalculation.GetAnalyzedLines(allLines);
 
             //Assert
-            //ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
+            ClassicAssert.IsTrue(expectedResult.SequenceEqual(actualResult, _comparer));
         }
 
         [Test]
@@ -47,8 +46,7 @@ namespace MaxSum.UnitTests
             List<string> inputList = null;
 
             //Act & Assert
-            // Assert.DoesNotThrow(() =>
-            // _sumCalculation.GetAnalyzedLines(inputList));
+             Assert.DoesNotThrow(() => _sumCalculation.GetAnalyzedLines(inputList));
         }
     }
 }
