@@ -3,7 +3,7 @@
 namespace MaxSum.UnitTests
 {
     [TestFixture]
-    internal class GetAnalyzedLinesTests
+    public class GetAnalyzedLinesTests
     {
         private SumCalculationResult _sumCalculation = new SumCalculationResult(0, 0, new List<int> { 1,2,3});
         private LineAnalyzingResultComparer _comparer = new LineAnalyzingResultComparer();

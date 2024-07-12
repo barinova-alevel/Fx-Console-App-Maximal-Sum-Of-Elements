@@ -53,9 +53,13 @@ namespace MaxSum
                     }
                 }
 
-                if (counterOfNumericLines == 0)
+                if ((counterOfNumericLines == 0) && (lines.Count() != 0))
                 {
                     throw new AllLinesNonNumericException("All lines are non numeric.");
+                }
+                else if (lines.Count() == 0)
+                {
+                    throw new EmptyFileException("No filled lines.");
                 }
                 else
                 {
@@ -65,6 +69,11 @@ namespace MaxSum
             }
 
             catch (AllLinesNonNumericException ex)
+            {
+                Log.Information($"There is no lines to calculate max sum. {ex.Message}");
+                return new SumCalculationResult(0, -1, listOfNonNumericLines);
+            }
+            catch (EmptyFileException ex)
             {
                 Log.Information($"There is no lines to calculate max sum. {ex.Message}");
                 return new SumCalculationResult(0, -1, listOfNonNumericLines);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NSubstitute.ExceptionExtensions;
 using NUnit.Framework.Legacy;
 
 namespace MaxSum.UnitTests
@@ -11,33 +6,158 @@ namespace MaxSum.UnitTests
     [TestFixture]
     public class GetCalculationResultTests
     {
+        private SumCalculationResult _sumCalculation = new SumCalculationResult(0, 0, new List<int> { 1, 2, 3 });
+
         [Test]
         public void GetCalculationResult_Positive()
         {
             //Arrange
             List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
-            { 
-                new LineAnalyzingResult(0,0,true), 
+            {
+                new LineAnalyzingResult(0,0,true),
                 new LineAnalyzingResult(1,3,true),
-                new LineAnalyzingResult(2,1000,true),
-                new LineAnalyzingResult(3,5000,false) 
+                new LineAnalyzingResult(2,5,true),
+                new LineAnalyzingResult(3,5000,false)
             };
-            SumCalculationResult sumCalculation = new SumCalculationResult(0,0, new List<int>());
+            SumCalculationResult expectedResult = new SumCalculationResult(5, 3, new List<int> { 4 });
 
             //Act
-            SumCalculationResult sumCalculationResult = sumCalculation.GetCalculationResult(lineAnalizingResult);
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
 
             //Assert
-            //CollectionAssert.AreEqual(lineAnalizingResult,)
+            Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
+            Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
+            Assert.That(actualResult.ListOfNonNumericLines, Is.EqualTo(expectedResult.ListOfNonNumericLines));
+
         }
-        // play with true/false
-        //play with negative sum
-        //not ordered number of lines, e.g. 3,4,1
-        //pass empty list
+
+        [Test]
+        public void GetCalculationResult_AllLinesNumeric()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
+            {
+                new LineAnalyzingResult(0,0,true),
+                new LineAnalyzingResult(1,3,true),
+                new LineAnalyzingResult(2,5,true),
+                new LineAnalyzingResult(3,5000,true)
+            };
+            SumCalculationResult expectedResult = new SumCalculationResult(5000, 4, new List<int> { });
+
+            //Act
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+            //Assert
+            Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
+            Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
+            Assert.That(actualResult.ListOfNonNumericLines, Is.EqualTo(expectedResult.ListOfNonNumericLines));
+
+        }
+
+        [Test]
+        public void GetCalculationResult_AllLinesNonNumeric()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
+            {
+                new LineAnalyzingResult(0,0,false),
+                new LineAnalyzingResult(1,3,false),
+                new LineAnalyzingResult(2,5,false),
+                new LineAnalyzingResult(3,5000,false)
+            };
+            SumCalculationResult expectedResult = new SumCalculationResult(0, -1, new List<int> { 1, 2, 3, 4 });
+
+            //Act
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+            //Assert
+            Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
+            Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
+            Assert.That(actualResult.ListOfNonNumericLines, Is.EqualTo(expectedResult.ListOfNonNumericLines));
+        }
+
+        [Test]
+        public void GetCalculationResult_MaxSumIsNegativeNumber()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
+            {
+                new LineAnalyzingResult(0,0,false),
+                new LineAnalyzingResult(1,3,false),
+                new LineAnalyzingResult(2,-5,true),
+                new LineAnalyzingResult(3,-5000,true)
+            };
+            SumCalculationResult expectedResult = new SumCalculationResult(-5, 3, new List<int> { 1, 2 });
+
+            //Act
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+            //Assert
+            Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
+            Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
+        }
+
+        [Test]
+        public void GetCalculationResult_NotOrderedNumberOfLines()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
+            {
+                new LineAnalyzingResult(0,0,false),
+                new LineAnalyzingResult(1,3,false),
+                new LineAnalyzingResult(2,5,true),
+                new LineAnalyzingResult(3,5000,false)
+            };
+            SumCalculationResult expectedResult = new SumCalculationResult(5, 3, new List<int> { 2, 4, 1 });
+
+            //Act
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+            //Assert
+            Assert.That(actualResult.ListOfNonNumericLines, Is.EquivalentTo(expectedResult.ListOfNonNumericLines));
+        }
+
+        [Test]
+        public void GetCalculationResult_PassEmptyList()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult> { };
+            SumCalculationResult expectedResult = new SumCalculationResult(0, -1, new List<int> { });
+
+            //Act
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+            //Assert
+            Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
+            Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
+            Assert.That(actualResult.ListOfNonNumericLines, Is.EqualTo(expectedResult.ListOfNonNumericLines));
+        }
+
+        //[Test]
+        //public void GetCalculationResult_HandleException()
+        //{
+        //    //Arrange
+        //    List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
+        //    {
+        //        new LineAnalyzingResult(0, 0, false),
+        //        new LineAnalyzingResult(1, 3, false),
+        //        new LineAnalyzingResult(2, -5, false),
+        //        new LineAnalyzingResult(3, -5000, true)
+        //    };
+
+        //    SumCalculationResult expectedResult = new SumCalculationResult(0, -1, new List<int> { });
+
+        //    //Act
+        //    SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+        //    //Assert
+        //    Assert.DoesNotThrow<AllLinesNonNumericException>(() => _sumCalculation.GetCalculationResult(lineAnalizingResult));
+        //}
+
         //force exception
         //pass null
         //recheck tests on exceptions то можна ж за допомогою if перевірити і обробити цю ситуацію.
-        
+
 
     }
 }
