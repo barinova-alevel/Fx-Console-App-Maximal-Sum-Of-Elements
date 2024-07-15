@@ -8,7 +8,7 @@ namespace MaxSum.UnitTests
         private SumCalculationResult _sumCalculation = new SumCalculationResult(0, 0, new List<int> { 1, 2, 3 });
 
         [Test]
-        public void GetCalculationResult_Positive()
+        public void GetCalculationResult_Init_Positive()
         {
             //Arrange
             List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
@@ -97,6 +97,29 @@ namespace MaxSum.UnitTests
         }
 
         [Test]
+        public void GetCalculationResult_DoubleNumbers()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
+            {
+                new LineAnalyzingResult(0, 0.001,true),
+                new LineAnalyzingResult(1, 5.8, false),
+                new LineAnalyzingResult(2,-5.999,true),
+                new LineAnalyzingResult(3, 5.1,true),
+                new LineAnalyzingResult(4, 5.099,true)
+            };
+            SumCalculationResult expectedResult = new SumCalculationResult(5.1, 4, new List<int> { 2 });
+
+            //Act
+            SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
+
+            //Assert
+            Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
+            Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
+
+        }
+
+        [Test]
         public void GetCalculationResult_NotOrderedNumberOfLines()
         {
             //Arrange
@@ -142,7 +165,5 @@ namespace MaxSum.UnitTests
             ClassicAssert.NotNull(() => _sumCalculation.GetCalculationResult(lineAnalizingResult));
             Assert.DoesNotThrow(() => _sumCalculation.GetCalculationResult(null));
         }
-
-        //Add test for Calculate floating point numbers!!!!
     }
 }
