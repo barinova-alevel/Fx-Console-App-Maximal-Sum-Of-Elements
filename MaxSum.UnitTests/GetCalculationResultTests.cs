@@ -1,5 +1,4 @@
-﻿using NSubstitute.ExceptionExtensions;
-using NUnit.Framework.Legacy;
+﻿using NUnit.Framework.Legacy;
 
 namespace MaxSum.UnitTests
 {
@@ -133,31 +132,17 @@ namespace MaxSum.UnitTests
             Assert.That(actualResult.ListOfNonNumericLines, Is.EqualTo(expectedResult.ListOfNonNumericLines));
         }
 
-        //[Test]
-        //public void GetCalculationResult_HandleException()
-        //{
-        //    //Arrange
-        //    List<LineAnalyzingResult> lineAnalizingResult = new List<LineAnalyzingResult>
-        //    {
-        //        new LineAnalyzingResult(0, 0, false),
-        //        new LineAnalyzingResult(1, 3, false),
-        //        new LineAnalyzingResult(2, -5, false),
-        //        new LineAnalyzingResult(3, -5000, true)
-        //    };
+        [Test]
+        public void GetCalculationResult_NullPassing()
+        {
+            //Arrange
+            List<LineAnalyzingResult> lineAnalizingResult = null;
 
-        //    SumCalculationResult expectedResult = new SumCalculationResult(0, -1, new List<int> { });
+            //Act & Assert
+            ClassicAssert.NotNull(() => _sumCalculation.GetCalculationResult(lineAnalizingResult));
+            Assert.DoesNotThrow(() => _sumCalculation.GetCalculationResult(null));
+        }
 
-        //    //Act
-        //    SumCalculationResult actualResult = _sumCalculation.GetCalculationResult(lineAnalizingResult);
-
-        //    //Assert
-        //    Assert.DoesNotThrow<AllLinesNonNumericException>(() => _sumCalculation.GetCalculationResult(lineAnalizingResult));
-        //}
-
-        //force exception
-        //pass null
-        //recheck tests on exceptions то можна ж за допомогою if перевірити і обробити цю ситуацію.
-
-
+        //Add test for Calculate floating point numbers!!!!
     }
 }

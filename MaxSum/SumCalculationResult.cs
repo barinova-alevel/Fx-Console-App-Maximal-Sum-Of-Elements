@@ -34,37 +34,44 @@ namespace MaxSum
 
             try
             {
-                foreach (LineAnalyzingResult line in lines)
+                if (lines == null)
                 {
-                    if (line.IsNumeric)
-                    {
-                        double lineSum = line.SumOfElements;
-                        if (lineSum > maxSum)
-                        {
-                            maxSum = lineSum;
-                            lineWithMaxSum = line.IndexOfLine + 1;
-                        }
-                        counterOfNumericLines++;
-                    }
-                    else
-                    {
-                        Log.Debug($"Adding line {line.IndexOfLine + 1} to list of non numeric.");
-                        listOfNonNumericLines.Add(line.IndexOfLine + 1);
-                    }
-                }
-
-                if ((counterOfNumericLines == 0) && (lines.Count() != 0))
-                {
-                    throw new AllLinesNonNumericException("All lines are non numeric.");
-                }
-                else if (lines.Count() == 0)
-                {
-                    throw new EmptyFileException("No filled lines.");
+                    throw new ArgumentNullException("Argument is null.");
                 }
                 else
                 {
-                    Log.Information($"Line with max sum is {lineWithMaxSum}");
-                    return new SumCalculationResult(maxSum, lineWithMaxSum, listOfNonNumericLines);
+                    foreach (LineAnalyzingResult line in lines)
+                    {
+                        if (line.IsNumeric)
+                        {
+                            double lineSum = line.SumOfElements;
+                            if (lineSum > maxSum)
+                            {
+                                maxSum = lineSum;
+                                lineWithMaxSum = line.IndexOfLine + 1;
+                            }
+                            counterOfNumericLines++;
+                        }
+                        else
+                        {
+                            Log.Debug($"Adding line {line.IndexOfLine + 1} to list of non numeric.");
+                            listOfNonNumericLines.Add(line.IndexOfLine + 1);
+                        }
+                    }
+
+                    if ((counterOfNumericLines == 0) && (lines.Count() != 0))
+                    {
+                        throw new AllLinesNonNumericException("All lines are non numeric.");
+                    }
+                    else if (lines.Count() == 0)
+                    {
+                        throw new EmptyFileException("No filled lines.");
+                    }
+                    else
+                    {
+                        Log.Information($"Line with max sum is {lineWithMaxSum}");
+                        return new SumCalculationResult(maxSum, lineWithMaxSum, listOfNonNumericLines);
+                    }
                 }
             }
 
@@ -77,6 +84,12 @@ namespace MaxSum
             {
                 Log.Information($"There is no lines to calculate max sum. {ex.Message}");
                 return new SumCalculationResult(0, -1, listOfNonNumericLines);
+            }
+            catch (ArgumentNullException ex)
+            {
+                Log.Debug(ex.Message);
+                List<int> emptyListOfNonNumericLines = new List<int> { counterOfNumericLines };
+                return new SumCalculationResult(0, -1, emptyListOfNonNumericLines);
             }
         }
 
@@ -125,16 +138,17 @@ namespace MaxSum
 
         public int GetNumberOfNonNumericLines(SumCalculationResult obj)
         {
-            if (obj != null)
+            if (obj == null || obj.ListOfNonNumericLines.Contains(0))
+            {
+                Log.Information("There is no non numeric lines");
+                return 0;
+            }
+            else
             {
                 int result = obj.ListOfNonNumericLines.Count;
                 Log.Information($"Number of non numeric lines is {result}");
                 return result;
-            }
-            else
-            {
-                Log.Information("There is no non numeric lines");
-                return 0;
+
             }
         }
 
