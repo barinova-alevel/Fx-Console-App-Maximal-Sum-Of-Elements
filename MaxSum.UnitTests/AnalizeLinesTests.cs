@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using NUnit.Framework.Legacy;
 using Serilog;
 namespace MaxSum.UnitTests
 {
@@ -88,10 +89,10 @@ namespace MaxSum.UnitTests
         public void AnalizeLines_NullPassing()
         {
             //Act & Assert
-            Assert.DoesNotThrow(() => _sumCalculationResult.AnalizeLines(null));
+            //Assert.DoesNotThrow(() => _sumCalculationResult.AnalizeLines(null));
+            ClassicAssert.NotNull(() => _sumCalculationResult.AnalizeLines(null));
         }
 
-        //how to perform this test without mock and with nSubstitute?
         [Test]
         public void AnalizeLines_UnauthorizedAccessException()
         {

@@ -39,7 +39,6 @@ public class Program
             {
                 string filePath = output.GetPath(filePathArg);
                 SumCalculationResult result = sumCalculationResult.AnalizeLines(filePath);
-
                 int numberOfBrokenLines = sumCalculationResult.GetNumberOfNonNumericLines(result);
                 List<int> listOfNumbersNonNumericLines = sumCalculationResult.GetListOfNumbersNonNumericLines(result);
 

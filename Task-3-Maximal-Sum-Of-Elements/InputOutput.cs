@@ -29,7 +29,7 @@ namespace Task_3_Maximal_Sum_Of_Elements
             }
             catch (Exception e)
             {
-                Log.Error("Could not get file path: {}", e.Message, e);
+                Log.Error("Could not get file path: {}", e.Message);
                 throw;
             }
         }

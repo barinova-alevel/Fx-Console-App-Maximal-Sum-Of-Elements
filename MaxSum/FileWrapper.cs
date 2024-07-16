@@ -18,8 +18,19 @@ namespace MaxSum
                 if (!File.Exists(filePath))
                 {
                     Log.Information($"File {filePath} does not exist.");
-                    //if - would you like to continue > exit or enter path manually again
-                    return GetFilePathManually();
+                    Console.WriteLine("Would you like to enter file path manually? (yes/no)");
+                    string userInput = Console.ReadLine().Trim().ToLower();
+
+                    if (userInput == "no")
+                    {
+                        Log.Information("Exiting program.");
+                        Environment.Exit(0);
+                        return allLines;
+                    }
+                    else
+                    {
+                        return GetFilePathManually();
+                    }
                 }
                 else if (File.ReadAllLines(filePath).Length == 0)
                 {
@@ -40,9 +51,9 @@ namespace MaxSum
                 return HandleUnauthorizedAccessException();
             }
 
-            catch (EmptyFileException ex)
+            catch (EmptyFileException)
             {
-                Log.Information($"Failed to read any line from the file. {ex.Message}");
+                Log.Information($"Failed to read any line from the file.");
                 return allLines;
             }
 
@@ -56,7 +67,7 @@ namespace MaxSum
         private List<string> HandleUnauthorizedAccessException()
         {
             List<string> allLines = new List<string>();
-            Console.WriteLine("Do you want to continue running the program? (yes/no)");
+            Console.WriteLine("Would you like to continue running the program? (yes/no)");
             string userInput = Console.ReadLine().Trim().ToLower();
 
             if (userInput == "no")

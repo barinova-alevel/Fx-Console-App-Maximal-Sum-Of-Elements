@@ -148,7 +148,6 @@ namespace MaxSum
                 int result = obj.ListOfNonNumericLines.Count;
                 Log.Information($"Number of non numeric lines is {result}");
                 return result;
-
             }
         }
 
@@ -196,7 +195,6 @@ namespace MaxSum
                     break;
                 }
             }
-
             return sum;
         }
         private bool IsNumeric(string line)

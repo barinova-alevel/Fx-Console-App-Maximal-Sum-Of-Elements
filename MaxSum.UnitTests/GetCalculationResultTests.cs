@@ -50,7 +50,6 @@ namespace MaxSum.UnitTests
             Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
             Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
             Assert.That(actualResult.ListOfNonNumericLines, Is.EqualTo(expectedResult.ListOfNonNumericLines));
-
         }
 
         [Test]
@@ -116,7 +115,6 @@ namespace MaxSum.UnitTests
             //Assert
             Assert.That(actualResult.MaxSum, Is.EqualTo(expectedResult.MaxSum));
             Assert.That(actualResult.LineWithMaxSum, Is.EqualTo(expectedResult.LineWithMaxSum));
-
         }
 
         [Test]
