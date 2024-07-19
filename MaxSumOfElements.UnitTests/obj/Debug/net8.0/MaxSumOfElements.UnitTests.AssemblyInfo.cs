@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MaxSumOfElements.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9922849b88cccf5a0967baf354bc297b9f0b82f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dec82faa09d2bc2f49224ce9be742f782230776d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MaxSumOfElements.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MaxSumOfElements.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

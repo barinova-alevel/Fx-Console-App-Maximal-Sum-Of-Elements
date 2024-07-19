@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Oksana\\source\\repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj": {}
+    "C:\\Users\\Oksana\\Source\\Repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Oksana\\source\\repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj": {
+    "C:\\Users\\Oksana\\Source\\Repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oksana\\source\\repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj",
+        "projectUniqueName": "C:\\Users\\Oksana\\Source\\Repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj",
         "projectName": "MaxSumOfElements.BL",
-        "projectPath": "C:\\Users\\Oksana\\source\\repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj",
+        "projectPath": "C:\\Users\\Oksana\\Source\\Repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\MaxSumOfElements.BL.csproj",
         "packagesPath": "C:\\Users\\Oksana\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Oksana\\source\\repos\\Task-3-Maximal-Sum-Of-Elements\\MaxSumOfElements.BL\\obj\\",
         "projectStyle": "PackageReference",
