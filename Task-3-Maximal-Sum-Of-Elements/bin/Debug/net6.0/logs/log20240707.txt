@@ -1,3 +1,0 @@
-2024-07-07 16:01:20.471 +03:00 [INF] start
-2024-07-07 16:01:24.792 +03:00 [INF] The directory C:\Temp\UnitTests does not exist.
-2024-07-07 16:03:25.495 +03:00 [INF] start

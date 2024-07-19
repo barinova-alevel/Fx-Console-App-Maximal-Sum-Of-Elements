@@ -1,8 +1,0 @@
-2024-07-03 21:40:42.929 +03:00 [INF] start
-2024-07-03 21:40:46.890 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
-2024-07-03 21:40:46.916 +03:00 [INF] File path: C://Temp/test.txt
-2024-07-03 21:40:46.943 +03:00 [INF] Failed to read any line from the file. The file is empty.
-2024-07-03 21:40:47.044 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
-2024-07-03 21:40:47.071 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
-2024-07-03 21:40:47.074 +03:00 [INF] Number of non numeric lines is 0
-2024-07-03 21:40:47.078 +03:00 [INF] List of non numeric lines:
