@@ -1,0 +1,17 @@
+2024-06-30 18:22:31.465 +03:00 [INF] start
+2024-06-30 18:22:37.423 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-06-30 18:22:37.445 +03:00 [INF] File path: C://Temp/test.txt
+2024-06-30 18:22:37.455 +03:00 [INF] Reading file from C:\Temp\Test.txt
+2024-06-30 18:22:37.488 +03:00 [INF] Max sum can't be calculated for not existed file. Input cannot be null.
+2024-06-30 18:25:49.025 +03:00 [INF] start
+2024-06-30 18:25:51.501 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-06-30 18:25:51.521 +03:00 [INF] File path: C://Temp/test.txt
+2024-06-30 18:25:51.538 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-06-30 18:25:51.569 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\source\repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-06-30 18:25:51.582 +03:00 [INF] Max sum can't be calculated for not existed file. Input cannot be null.
+2024-06-30 18:29:20.872 +03:00 [INF] start
+2024-06-30 18:29:23.448 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-06-30 18:29:23.471 +03:00 [INF] File path: C://Temp/test.txt
+2024-06-30 18:29:23.489 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-06-30 18:29:23.518 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\source\repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-06-30 18:29:23.535 +03:00 [INF] Max sum can't be calculated for not existed file. Input cannot be null.

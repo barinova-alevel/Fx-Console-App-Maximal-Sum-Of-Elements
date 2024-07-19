@@ -1,0 +1,11 @@
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\bin\Debug\net8.0\MaxSumOfElements.BL.deps.json
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\bin\Debug\net8.0\MaxSumOfElements.BL.dll
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\bin\Debug\net8.0\MaxSumOfElements.BL.pdb
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\MaxSumOfElements.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\MaxSumOfElements.BL.AssemblyInfoInputs.cache
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\MaxSumOfElements.BL.AssemblyInfo.cs
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\MaxSumOfElements.BL.csproj.CoreCompileInputs.cache
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\MaxSumOfElements.BL.dll
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\refint\MaxSumOfElements.BL.dll
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\MaxSumOfElements.BL.pdb
+C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSumOfElements.BL\obj\Debug\net8.0\ref\MaxSumOfElements.BL.dll

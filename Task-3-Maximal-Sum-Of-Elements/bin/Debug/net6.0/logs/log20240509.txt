@@ -1,0 +1,166 @@
+2024-05-09 09:50:17.372 +03:00 [INF] start
+2024-05-09 09:50:17.430 +03:00 [INF] Would you like to read a file? (yes/no): 
+2024-05-09 09:50:20.358 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 09:50:20.372 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 09:50:20.373 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 09:50:20.378 +03:00 [INF] Would you like to read a file? (yes/no): 
+2024-05-09 09:56:18.338 +03:00 [INF] start
+2024-05-09 09:56:21.052 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 09:56:21.071 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 09:56:21.074 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 09:56:21.076 +03:00 [INF] Calculating line with max sum.
+2024-05-09 09:56:21.077 +03:00 [ERR] Invalid number format: hjhkhh hjhkhh
+2024-05-09 09:56:21.078 +03:00 [INF] Sum of elements in hjhkhh hjhkhh is 0
+2024-05-09 09:56:21.079 +03:00 [INF] Sum of elements in 2,4,6 is 12
+2024-05-09 09:56:21.079 +03:00 [INF] The line with max sum is 2
+2024-05-09 09:56:21.080 +03:00 [INF] The max sum is 12
+2024-05-09 10:07:12.111 +03:00 [INF] start
+2024-05-09 10:07:14.658 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:07:14.672 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:07:14.675 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:07:14.675 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:07:14.676 +03:00 [INF] Sum of elements for hjhkhh hjhkhh is 0
+2024-05-09 10:07:14.677 +03:00 [INF] Sum of elements for 2,4,6 is 12
+2024-05-09 10:07:14.677 +03:00 [INF] The line with max sum is 2
+2024-05-09 10:07:14.677 +03:00 [INF] The max sum is 12
+2024-05-09 10:07:14.679 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:10:03.100 +03:00 [INF] start
+2024-05-09 10:10:06.005 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:10:06.020 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:10:06.022 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:10:06.024 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:10:06.026 +03:00 [INF] Sum of elements for hjhkhh hjhkhh is 0
+2024-05-09 10:10:06.027 +03:00 [INF] Sum of elements for 2,4,6 is 12
+2024-05-09 10:10:06.028 +03:00 [INF] The line with max sum is 2
+2024-05-09 10:10:06.029 +03:00 [INF] The max sum is 12
+2024-05-09 10:10:06.030 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:16:00.631 +03:00 [INF] start
+2024-05-09 10:16:08.326 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:16:08.340 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:16:08.342 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:16:08.343 +03:00 [INF] hjhkhh hjhkhh is broken.
+2024-05-09 10:16:08.344 +03:00 [INF] 2,4,6 is numeric.
+2024-05-09 10:16:08.345 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:16:08.346 +03:00 [INF] Sum of elements for 2,4,6 is 12
+2024-05-09 10:16:08.347 +03:00 [INF] The line with max sum is 1
+2024-05-09 10:16:08.347 +03:00 [INF] The max sum is 12
+2024-05-09 10:16:08.348 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:16:08.349 +03:00 [INF] 1 
+2024-05-09 10:19:36.068 +03:00 [INF] start
+2024-05-09 10:19:38.351 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:19:38.371 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:19:38.372 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:19:38.374 +03:00 [INF] 'hjhkhh hjhkhh' is broken.
+2024-05-09 10:19:38.376 +03:00 [INF] '2,4,6' is numeric.
+2024-05-09 10:19:38.378 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:19:38.380 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-09 10:19:38.383 +03:00 [INF] Number of the line with max sum is 1
+2024-05-09 10:19:38.385 +03:00 [INF] The max sum is 12
+2024-05-09 10:19:38.387 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:19:38.390 +03:00 [INF] 1 
+2024-05-09 10:21:41.739 +03:00 [INF] start
+2024-05-09 10:21:44.426 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:21:44.440 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:21:44.443 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:21:44.444 +03:00 [INF] 'hjhkhh hjhkhh' is broken.
+2024-05-09 10:21:44.444 +03:00 [INF] '2,4,6' is numeric.
+2024-05-09 10:21:44.445 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:21:44.445 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-09 10:24:11.950 +03:00 [INF] start
+2024-05-09 10:24:14.319 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:24:14.333 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:24:14.336 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:24:14.337 +03:00 [INF] 'hjhkhh hjhkhh' is broken.
+2024-05-09 10:24:14.337 +03:00 [INF] '2,4,6' is numeric.
+2024-05-09 10:24:14.338 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:24:14.339 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-09 10:24:14.339 +03:00 [INF] Number of the line with max sum is 2
+2024-05-09 10:24:14.340 +03:00 [INF] The max sum is 12
+2024-05-09 10:24:14.340 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:24:14.341 +03:00 [INF] 1 
+2024-05-09 10:28:52.755 +03:00 [INF] start
+2024-05-09 10:28:55.232 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:28:55.246 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:28:55.248 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:28:55.249 +03:00 [INF] 'hjhkhh hjhkhh' is broken.
+2024-05-09 10:28:55.250 +03:00 [INF] '2,4,6' is numeric.
+2024-05-09 10:28:55.250 +03:00 [INF] '3,4.7,15,122' is broken.
+2024-05-09 10:28:55.252 +03:00 [INF] 'hjk' is broken.
+2024-05-09 10:28:55.252 +03:00 [INF] '3,4,r,t' is broken.
+2024-05-09 10:28:55.253 +03:00 [INF] '-1,200' is numeric.
+2024-05-09 10:28:55.254 +03:00 [INF] '' is broken.
+2024-05-09 10:28:55.254 +03:00 [INF] '  5,6' is numeric.
+2024-05-09 10:28:55.255 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:28:55.255 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-09 10:28:55.256 +03:00 [INF] Sum of elements for '-1,200' is 199
+2024-05-09 10:28:55.256 +03:00 [INF] Sum of elements for '  5,6' is 11
+2024-05-09 10:28:55.257 +03:00 [INF] Number of the line with max sum is 6
+2024-05-09 10:28:55.257 +03:00 [INF] The max sum is 199
+2024-05-09 10:28:55.258 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:28:55.258 +03:00 [INF] 1 
+2024-05-09 10:28:55.259 +03:00 [INF] 3 
+2024-05-09 10:28:55.259 +03:00 [INF] 4 
+2024-05-09 10:28:55.259 +03:00 [INF] 5 
+2024-05-09 10:28:55.260 +03:00 [INF] 7 
+2024-05-09 10:30:56.841 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:30:56.842 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:30:56.843 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:30:56.843 +03:00 [INF] 'hjhkhh hjhkhh' is broken.
+2024-05-09 10:30:56.844 +03:00 [INF] '2,4,6' is numeric.
+2024-05-09 10:30:56.844 +03:00 [INF] '3,4.7,15,122' is broken.
+2024-05-09 10:30:56.845 +03:00 [INF] 'hjk' is broken.
+2024-05-09 10:30:56.845 +03:00 [INF] '3,4,r,t' is broken.
+2024-05-09 10:30:56.846 +03:00 [INF] '-1,200' is numeric.
+2024-05-09 10:30:56.846 +03:00 [INF] '' is broken.
+2024-05-09 10:30:56.846 +03:00 [INF] '  5,6,300' is numeric.
+2024-05-09 10:30:56.847 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:30:56.847 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-09 10:30:56.848 +03:00 [INF] Sum of elements for '-1,200' is 199
+2024-05-09 10:30:56.848 +03:00 [INF] Sum of elements for '  5,6,300' is 311
+2024-05-09 10:30:56.849 +03:00 [INF] Number of the line with max sum is 8
+2024-05-09 10:30:56.850 +03:00 [INF] The max sum is 311
+2024-05-09 10:30:56.850 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:30:56.851 +03:00 [INF] 1 
+2024-05-09 10:30:56.851 +03:00 [INF] 3 
+2024-05-09 10:30:56.852 +03:00 [INF] 4 
+2024-05-09 10:30:56.852 +03:00 [INF] 5 
+2024-05-09 10:30:56.853 +03:00 [INF] 7 
+2024-05-09 10:39:22.954 +03:00 [INF] start
+2024-05-09 10:39:26.220 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:39:26.235 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:39:26.237 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:41:34.222 +03:00 [INF] start
+2024-05-09 10:41:36.726 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:41:36.741 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:41:36.744 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:42:20.319 +03:00 [INF] '4.7' is numeric.
+2024-05-09 10:42:46.492 +03:00 [INF] start
+2024-05-09 10:42:48.810 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:42:48.825 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:42:48.828 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:54:08.110 +03:00 [INF] start
+2024-05-09 10:54:11.353 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-09 10:54:11.366 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-09 10:54:11.369 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-09 10:56:06.966 +03:00 [INF] '3,4.7,15,122' is numeric.
+2024-05-09 10:56:16.211 +03:00 [INF] 'hjhkhh hjhkhh' is broken.
+2024-05-09 10:56:16.214 +03:00 [INF] '2,4,6' is numeric.
+2024-05-09 10:56:16.216 +03:00 [INF] '' is broken.
+2024-05-09 10:56:16.217 +03:00 [INF] 'hjk' is broken.
+2024-05-09 10:56:16.218 +03:00 [INF] '3,4,r,t' is broken.
+2024-05-09 10:56:16.219 +03:00 [INF] '-1,200' is numeric.
+2024-05-09 10:56:16.219 +03:00 [INF] '' is broken.
+2024-05-09 10:56:16.220 +03:00 [INF] '  5,6,300' is numeric.
+2024-05-09 10:56:16.220 +03:00 [INF] Calculating line with max sum.
+2024-05-09 10:56:16.221 +03:00 [INF] Sum of elements for '3,4.7,15,122' is 144.7
+2024-05-09 10:56:16.222 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-09 10:56:16.222 +03:00 [INF] Sum of elements for '-1,200' is 199
+2024-05-09 10:56:16.223 +03:00 [INF] Sum of elements for '  5,6,300' is 311
+2024-05-09 10:56:16.223 +03:00 [INF] Number of the line with max sum is 9
+2024-05-09 10:56:16.224 +03:00 [INF] The max sum is 311
+2024-05-09 10:56:16.224 +03:00 [INF] Non numeric lines: 
+2024-05-09 10:56:16.225 +03:00 [INF] 2 
+2024-05-09 10:56:16.225 +03:00 [INF] 4 
+2024-05-09 10:56:16.226 +03:00 [INF] 5 
+2024-05-09 10:56:16.226 +03:00 [INF] 6 
+2024-05-09 10:56:16.227 +03:00 [INF] 4 

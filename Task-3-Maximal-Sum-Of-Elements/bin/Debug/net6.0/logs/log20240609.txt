@@ -1,0 +1,57 @@
+2024-06-09 10:30:32.882 +03:00 [INF] start
+2024-06-09 10:31:25.552 +03:00 [INF] start
+2024-06-09 10:32:17.278 +03:00 [INF] start
+2024-06-09 10:32:43.996 +03:00 [INF] start
+2024-06-09 10:33:09.922 +03:00 [INF] start
+2024-06-09 10:34:16.118 +03:00 [INF] start
+2024-06-09 10:34:16.176 +03:00 [INF] Reading file from C:\Temp\t1.txt
+2024-06-09 10:36:35.568 +03:00 [INF] start
+2024-06-09 10:36:35.638 +03:00 [INF] Reading file from C:\Temp\t1.txt
+2024-06-09 11:49:16.042 +03:00 [INF] start
+2024-06-09 11:49:18.820 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 11:49:18.834 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 11:49:18.837 +03:00 [INF] Reading file from C://Temp/TestAccess.txt
+2024-06-09 11:49:18.848 +03:00 [ERR] Error: Access to the file is denied. Access to the path 'C:\Temp\TestAccess.txt' is denied.
+2024-06-09 11:55:04.170 +03:00 [INF] start
+2024-06-09 11:55:11.101 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 11:55:11.115 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 11:55:36.243 +03:00 [INF] Reading file from C://Temp/TestAccess.txt
+2024-06-09 11:55:36.258 +03:00 [ERR] Error: Access to the file is denied. Access to the path 'C:\Temp\TestAccess.txt' is denied.
+2024-06-09 11:56:01.393 +03:00 [DBG] Console file path: c://test.txt
+2024-06-09 11:56:01.395 +03:00 [INF] File c://test.txt does not exist.
+2024-06-09 11:56:06.356 +03:00 [DBG] No lines found
+2024-06-09 11:56:06.357 +03:00 [INF] Line with max sum is 0
+2024-06-09 11:56:06.357 +03:00 [INF] Max sum: 0
+2024-06-09 11:56:06.358 +03:00 [INF] Number of non numeric lines is 0
+2024-06-09 11:56:06.359 +03:00 [INF] List of non numeric lines:
+2024-06-09 11:56:11.143 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 11:56:11.144 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 11:58:04.023 +03:00 [INF] start
+2024-06-09 11:58:10.044 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 11:58:10.058 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 11:59:37.289 +03:00 [INF] start
+2024-06-09 11:59:44.248 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 11:59:44.261 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:02:14.150 +03:00 [INF] start
+2024-06-09 12:02:20.571 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 12:02:20.585 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:04:09.040 +03:00 [INF] start
+2024-06-09 12:04:13.111 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 12:04:13.126 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:08:34.703 +03:00 [INF] start
+2024-06-09 12:08:37.012 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 12:08:37.026 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:08:37.029 +03:00 [INF] Reading file from C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:08:37.041 +03:00 [ERR] Error: Access to the file is denied. Access to the path 'C:\Temp\testAccessDeniedFile.txt' is denied.
+2024-06-09 12:09:00.245 +03:00 [DBG] Console file path: c:\\test.txt
+2024-06-09 12:09:00.247 +03:00 [INF] File c:\\test.txt does not exist.
+2024-06-09 12:09:00.249 +03:00 [DBG] No lines found
+2024-06-09 12:09:00.250 +03:00 [INF] Line with max sum is 0
+2024-06-09 12:09:00.250 +03:00 [INF] Max sum: 0
+2024-06-09 12:09:00.251 +03:00 [INF] Number of non numeric lines is 0
+2024-06-09 12:09:00.252 +03:00 [INF] List of non numeric lines:
+2024-06-09 12:17:39.352 +03:00 [INF] start
+2024-06-09 12:17:42.159 +03:00 [DBG] Getting file path from path argument --path=C://Temp/testAccessDeniedFile.txt: 
+2024-06-09 12:17:42.174 +03:00 [DBG] File path: C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:17:42.176 +03:00 [INF] Reading file from C://Temp/testAccessDeniedFile.txt
+2024-06-09 12:17:42.192 +03:00 [ERR] Error: Access to the file is denied. Access to the path 'C:\Temp\testAccessDeniedFile.txt' is denied.

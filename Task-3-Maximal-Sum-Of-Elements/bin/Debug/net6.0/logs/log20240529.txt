@@ -1,0 +1,107 @@
+2024-05-29 09:44:47.829 +03:00 [INF] start
+2024-05-29 09:44:50.112 +03:00 [INF] Reading file from c:\temp\test.txt
+2024-05-29 09:44:50.122 +03:00 [INF] Sum of elements for '3,4.7,15,122' is 144.7
+2024-05-29 09:44:50.125 +03:00 [DBG] Sum of line 1: 144.7
+2024-05-29 09:44:50.127 +03:00 [INF] Sum of elements for '2,4,6' is 12
+2024-05-29 09:44:50.128 +03:00 [DBG] Sum of line 3: 12
+2024-05-29 09:44:50.129 +03:00 [INF] Sum of elements for '-1,200' is 199
+2024-05-29 09:44:50.129 +03:00 [DBG] Sum of line 7: 199
+2024-05-29 09:44:50.130 +03:00 [INF] Sum of elements for '  5,6,300' is 311
+2024-05-29 09:44:50.130 +03:00 [DBG] Sum of line 9: 311
+2024-05-29 09:44:50.132 +03:00 [INF] Line 1 is numeric
+2024-05-29 09:44:50.133 +03:00 [INF] Line 2 is non numeric
+2024-05-29 09:44:50.134 +03:00 [INF] Line 3 is numeric
+2024-05-29 09:44:50.134 +03:00 [INF] Line 4 is non numeric
+2024-05-29 09:44:50.135 +03:00 [INF] Line 5 is non numeric
+2024-05-29 09:44:50.135 +03:00 [INF] Line 6 is non numeric
+2024-05-29 09:44:50.136 +03:00 [INF] Line 7 is numeric
+2024-05-29 09:44:50.136 +03:00 [INF] Line 8 is non numeric
+2024-05-29 09:44:50.137 +03:00 [INF] Line 9 is numeric
+2024-05-29 09:44:50.138 +03:00 [INF] Line with max sum is 9
+2024-05-29 09:44:50.139 +03:00 [INF] Number of non numeric lines is 5
+2024-05-29 09:44:50.140 +03:00 [INF] List of non numeric lines:
+2024-05-29 09:55:36.167 +03:00 [INF] start
+2024-05-29 09:55:38.939 +03:00 [INF] Reading file from c:\temp\test.txt
+2024-05-29 09:55:38.943 +03:00 [DBG] Sum of line 1: 144.7
+2024-05-29 09:55:38.946 +03:00 [DBG] Sum of line 3: 12
+2024-05-29 09:55:38.947 +03:00 [DBG] Sum of line 7: 199
+2024-05-29 09:55:38.947 +03:00 [DBG] Sum of line 9: 311
+2024-05-29 09:55:38.948 +03:00 [INF] Line 1 is numeric
+2024-05-29 09:55:38.949 +03:00 [INF] Line 2 is non numeric
+2024-05-29 09:55:38.949 +03:00 [INF] Line 3 is numeric
+2024-05-29 09:55:38.950 +03:00 [INF] Line 4 is non numeric
+2024-05-29 09:55:38.950 +03:00 [INF] Line 5 is non numeric
+2024-05-29 09:55:38.951 +03:00 [INF] Line 6 is non numeric
+2024-05-29 09:55:38.951 +03:00 [INF] Line 7 is numeric
+2024-05-29 09:55:38.952 +03:00 [INF] Line 8 is non numeric
+2024-05-29 09:55:38.953 +03:00 [INF] Line 9 is numeric
+2024-05-29 09:55:38.954 +03:00 [INF] Line with max sum is 9
+2024-05-29 09:55:38.956 +03:00 [INF] Number of non numeric lines is 5
+2024-05-29 09:55:38.956 +03:00 [INF] List of non numeric lines:
+2024-05-29 10:19:10.325 +03:00 [INF] start
+2024-05-29 10:19:13.325 +03:00 [INF] Reading file from c:\temp\test.txt
+2024-05-29 10:19:13.329 +03:00 [DBG] Line 1: 3,4.7,15,122
+2024-05-29 10:19:13.332 +03:00 [DBG] Line 1 is numeric, its sum: 144.7
+2024-05-29 10:19:13.332 +03:00 [DBG] Line 2: hjhkhh hjhkhh
+2024-05-29 10:19:13.333 +03:00 [DBG] Line 3: 2,4,6
+2024-05-29 10:19:13.333 +03:00 [DBG] Line 3 is numeric, its sum: 12
+2024-05-29 10:19:13.334 +03:00 [DBG] Line 4: 
+2024-05-29 10:19:13.334 +03:00 [DBG] Line 5: hjk
+2024-05-29 10:19:13.336 +03:00 [DBG] Line 6: 3,4,r,t
+2024-05-29 10:19:13.338 +03:00 [DBG] Line 7: -1,200
+2024-05-29 10:19:13.339 +03:00 [DBG] Line 7 is numeric, its sum: 199
+2024-05-29 10:19:13.340 +03:00 [DBG] Line 8: 
+2024-05-29 10:19:13.341 +03:00 [DBG] Line 9:   5,6,300
+2024-05-29 10:19:13.342 +03:00 [DBG] Line 9 is numeric, its sum: 311
+2024-05-29 10:19:13.343 +03:00 [DBG] Adding line 2 to list of non numeric
+2024-05-29 10:19:13.344 +03:00 [DBG] Adding line 4 to list of non numeric
+2024-05-29 10:19:13.345 +03:00 [DBG] Adding line 5 to list of non numeric
+2024-05-29 10:19:13.345 +03:00 [DBG] Adding line 6 to list of non numeric
+2024-05-29 10:19:13.346 +03:00 [DBG] Adding line 8 to list of non numeric
+2024-05-29 10:19:13.347 +03:00 [INF] Line with max sum is 9
+2024-05-29 10:19:13.348 +03:00 [INF] Max sum: 311
+2024-05-29 10:19:13.349 +03:00 [INF] Number of non numeric lines is 5
+2024-05-29 10:19:13.350 +03:00 [INF] List of non numeric lines:
+2024-05-29 10:22:12.402 +03:00 [INF] Reading file from c:\temp\test.txt
+2024-05-29 10:22:12.404 +03:00 [DBG] Line 1: 3,4.7,15,122
+2024-05-29 10:22:12.406 +03:00 [DBG] Line 1 is numeric, its sum: 144.7
+2024-05-29 10:22:12.408 +03:00 [DBG] Line 2: hjhkhh hjhkhh
+2024-05-29 10:22:12.410 +03:00 [DBG] Line 3: 2,4,6
+2024-05-29 10:22:12.411 +03:00 [DBG] Line 3 is numeric, its sum: 12
+2024-05-29 10:22:12.413 +03:00 [DBG] Line 4: 
+2024-05-29 10:22:12.415 +03:00 [DBG] Line 5: hjk
+2024-05-29 10:22:12.416 +03:00 [DBG] Line 6: 3,4,r,t
+2024-05-29 10:22:12.418 +03:00 [DBG] Line 7: -1,200
+2024-05-29 10:22:12.420 +03:00 [DBG] Line 7 is numeric, its sum: 199
+2024-05-29 10:22:12.422 +03:00 [DBG] Line 8: 
+2024-05-29 10:22:12.423 +03:00 [DBG] Line 9:   5,6,300
+2024-05-29 10:22:12.426 +03:00 [DBG] Line 9 is numeric, its sum: 311
+2024-05-29 10:22:12.428 +03:00 [DBG] Adding line 2 to list of non numeric
+2024-05-29 10:22:12.431 +03:00 [DBG] Adding line 4 to list of non numeric
+2024-05-29 10:22:12.433 +03:00 [DBG] Adding line 5 to list of non numeric
+2024-05-29 10:22:12.436 +03:00 [DBG] Adding line 6 to list of non numeric
+2024-05-29 10:22:12.438 +03:00 [DBG] Adding line 8 to list of non numeric
+2024-05-29 10:22:12.441 +03:00 [INF] Line with max sum is 9
+2024-05-29 10:22:12.444 +03:00 [INF] Max sum: 311
+2024-05-29 10:22:12.446 +03:00 [INF] Number of non numeric lines is 5
+2024-05-29 10:22:12.449 +03:00 [INF] List of non numeric lines:
+2024-05-29 10:23:33.699 +03:00 [INF] start
+2024-05-29 10:23:36.559 +03:00 [DBG] Getting file path from path argument --path=: 
+2024-05-29 10:23:36.580 +03:00 [DBG] File path: 
+2024-05-29 10:23:36.584 +03:00 [DBG] File  does not exist.
+2024-05-29 10:23:36.586 +03:00 [INF] Line with max sum is 1
+2024-05-29 10:23:36.588 +03:00 [INF] Max sum: 0
+2024-05-29 10:23:36.589 +03:00 [INF] Number of non numeric lines is 0
+2024-05-29 10:23:36.591 +03:00 [INF] List of non numeric lines:
+2024-05-29 10:34:08.240 +03:00 [INF] start
+2024-05-29 10:34:10.750 +03:00 [DBG] Getting file path from path argument --path=: 
+2024-05-29 10:34:10.771 +03:00 [DBG] File path: 
+2024-05-29 10:34:10.774 +03:00 [DBG] File  does not exist.
+2024-05-29 10:34:10.775 +03:00 [INF] Line with max sum is 1
+2024-05-29 10:34:10.777 +03:00 [INF] Max sum: 0
+2024-05-29 10:34:10.778 +03:00 [INF] Number of non numeric lines is 0
+2024-05-29 10:34:10.779 +03:00 [INF] List of non numeric lines:
+2024-05-29 10:35:55.969 +03:00 [INF] start
+2024-05-29 10:35:58.360 +03:00 [DBG] Getting file path from path argument --path=: 
+2024-05-29 10:35:58.381 +03:00 [DBG] File path: 
+2024-05-29 10:35:58.385 +03:00 [DBG] File  does not exist.

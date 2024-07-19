@@ -1,0 +1,13 @@
+2024-05-08 12:50:46.591 +03:00 [INF] start
+2024-05-08 12:50:46.658 +03:00 [INF] Would you like to read a file? (yes/no): 
+2024-05-08 12:50:53.920 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-08 12:50:53.934 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-08 12:50:53.941 +03:00 [INF] Would you like to read a file? (yes/no): 
+2024-05-08 19:50:40.238 +03:00 [INF] start
+2024-05-08 19:50:40.298 +03:00 [INF] Would you like to read a file? (yes/no): 
+2024-05-08 19:50:43.096 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.txt: 
+2024-05-08 19:50:43.112 +03:00 [DBG] File path: C:\\Temp\\test.txt
+2024-05-08 19:50:43.115 +03:00 [INF] Reading file from C:\\Temp\\test.txt
+2024-05-08 19:50:43.120 +03:00 [INF] Would you like to read a file? (yes/no): 
+2024-05-08 19:50:59.426 +03:00 [INF] Invalid input. Please enter 'yes' or 'no'.
+2024-05-08 19:50:59.427 +03:00 [INF] Would you like to read a file? (yes/no): 

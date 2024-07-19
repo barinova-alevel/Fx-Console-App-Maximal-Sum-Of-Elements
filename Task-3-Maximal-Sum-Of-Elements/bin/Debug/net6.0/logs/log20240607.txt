@@ -1,0 +1,99 @@
+2024-06-07 09:29:00.497 +03:00 [INF] start
+2024-06-07 09:31:31.298 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 09:31:31.331 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 09:31:31.335 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 09:31:31.338 +03:00 [DBG] Line 1: 2023-06-02 17:43:45
+2024-06-07 09:31:31.340 +03:00 [DBG] Line 2: 2023-06-02 17:43:46
+2024-06-07 09:31:31.343 +03:00 [DBG] Adding line 1 to list of non numeric
+2024-06-07 09:31:31.345 +03:00 [DBG] Adding line 2 to list of non numeric
+2024-06-07 09:31:31.347 +03:00 [INF] Line with max sum is 0
+2024-06-07 09:31:31.351 +03:00 [INF] Max sum: 0
+2024-06-07 09:31:31.354 +03:00 [INF] Number of non numeric lines is 2
+2024-06-07 09:31:31.356 +03:00 [INF] List of non numeric lines:
+2024-06-07 09:31:53.870 +03:00 [INF] Invalid input. Please enter 'yes' or 'no'.
+2024-06-07 09:43:36.605 +03:00 [INF] start
+2024-06-07 09:43:48.299 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 09:43:48.316 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 09:43:48.319 +03:00 [INF] File  does not exist.
+2024-06-07 09:43:48.320 +03:00 [DBG] No lines found
+2024-06-07 09:43:48.321 +03:00 [INF] Line with max sum is 0
+2024-06-07 09:43:48.322 +03:00 [INF] Max sum: 0
+2024-06-07 09:43:48.322 +03:00 [INF] Number of non numeric lines is 0
+2024-06-07 09:43:48.323 +03:00 [INF] List of non numeric lines:
+2024-06-07 09:59:36.611 +03:00 [INF] start
+2024-06-07 09:59:38.923 +03:00 [INF] Invalid input. Please enter 'yes' or 'no'.
+2024-06-07 09:59:50.150 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 09:59:50.170 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 09:59:50.173 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 09:59:50.174 +03:00 [DBG] Line 1: 2023-06-02 17:43:45
+2024-06-07 09:59:50.175 +03:00 [DBG] Line 2: 2023-06-02 17:43:46
+2024-06-07 09:59:50.176 +03:00 [DBG] Adding line 1 to list of non numeric
+2024-06-07 09:59:50.177 +03:00 [DBG] Adding line 2 to list of non numeric
+2024-06-07 09:59:50.177 +03:00 [INF] Line with max sum is 0
+2024-06-07 09:59:50.178 +03:00 [INF] Max sum: 0
+2024-06-07 09:59:50.179 +03:00 [INF] Number of non numeric lines is 2
+2024-06-07 09:59:50.180 +03:00 [INF] List of non numeric lines:
+2024-06-07 10:01:14.879 +03:00 [INF] Invalid input. Please enter 'yes' or 'no'.
+2024-06-07 10:01:20.428 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 10:01:20.429 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 10:01:20.431 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 10:01:20.433 +03:00 [DBG] Line 1: 2023-06-02 17:43:45
+2024-06-07 10:01:20.434 +03:00 [DBG] Line 2: 2023-06-02 17:43:46
+2024-06-07 10:01:20.436 +03:00 [DBG] Adding line 1 to list of non numeric
+2024-06-07 10:01:20.438 +03:00 [DBG] Adding line 2 to list of non numeric
+2024-06-07 10:01:20.440 +03:00 [INF] Line with max sum is 0
+2024-06-07 10:01:20.442 +03:00 [INF] Max sum: 0
+2024-06-07 10:01:20.444 +03:00 [INF] Number of non numeric lines is 2
+2024-06-07 10:01:20.445 +03:00 [INF] List of non numeric lines:
+2024-06-07 10:03:55.672 +03:00 [INF] start
+2024-06-07 10:03:57.874 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 10:03:57.895 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 10:03:57.898 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 10:03:57.899 +03:00 [DBG] Line 1: 2023-06-02 17:43:45
+2024-06-07 10:03:57.900 +03:00 [DBG] Line 2: 2023-06-02 17:43:46
+2024-06-07 10:03:57.900 +03:00 [DBG] Line 3: 1,4,1000000000,7
+2024-06-07 10:03:57.901 +03:00 [DBG] Line 3 is numeric, its sum: 1000000012
+2024-06-07 10:03:57.902 +03:00 [DBG] Line 4: кирилиця
+2024-06-07 10:03:57.902 +03:00 [DBG] Line 5: h
+2024-06-07 10:03:57.903 +03:00 [DBG] Line 6: 8,-7.2,17
+2024-06-07 10:03:57.903 +03:00 [DBG] Line 6 is numeric, its sum: 17.8
+2024-06-07 10:03:57.904 +03:00 [DBG] Line 7: 8, 9, 90
+2024-06-07 10:03:57.905 +03:00 [DBG] Line 7 is numeric, its sum: 107
+2024-06-07 10:03:57.905 +03:00 [DBG] Line 8: 8,-7.2,17
+2024-06-07 10:03:57.906 +03:00 [DBG] Line 8 is numeric, its sum: 17.8
+2024-06-07 10:03:57.906 +03:00 [DBG] Adding line 1 to list of non numeric
+2024-06-07 10:03:57.908 +03:00 [DBG] Adding line 2 to list of non numeric
+2024-06-07 10:03:57.908 +03:00 [DBG] Adding line 4 to list of non numeric
+2024-06-07 10:03:57.909 +03:00 [DBG] Adding line 5 to list of non numeric
+2024-06-07 10:03:57.910 +03:00 [INF] Line with max sum is 3
+2024-06-07 10:03:57.910 +03:00 [INF] Max sum: 1000000012
+2024-06-07 10:03:57.911 +03:00 [INF] Number of non numeric lines is 4
+2024-06-07 10:03:57.912 +03:00 [INF] List of non numeric lines:
+2024-06-07 10:19:21.942 +03:00 [INF] start
+2024-06-07 10:19:24.126 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 10:19:24.149 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 10:19:24.153 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 10:19:24.155 +03:00 [DBG] No lines found
+2024-06-07 10:19:24.156 +03:00 [INF] Line with max sum is 0
+2024-06-07 10:19:24.157 +03:00 [INF] Max sum: 0
+2024-06-07 10:19:24.158 +03:00 [INF] Number of non numeric lines is 0
+2024-06-07 10:19:24.158 +03:00 [INF] List of non numeric lines:
+2024-06-07 18:27:20.540 +03:00 [INF] start
+2024-06-07 18:27:22.493 +03:00 [INF] Invalid input. Please enter 'yes' or 'no'.
+2024-06-07 18:27:28.856 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 18:27:28.877 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 18:27:28.880 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 18:27:28.881 +03:00 [DBG] No lines found
+2024-06-07 18:27:28.882 +03:00 [INF] Line with max sum is 0
+2024-06-07 18:27:28.884 +03:00 [INF] Max sum: 0
+2024-06-07 18:27:28.884 +03:00 [INF] Number of non numeric lines is 0
+2024-06-07 18:27:28.885 +03:00 [INF] List of non numeric lines:
+2024-06-07 18:37:22.534 +03:00 [INF] start
+2024-06-07 18:37:28.321 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt: 
+2024-06-07 18:37:28.342 +03:00 [DBG] File path: C://Temp/test.txt
+2024-06-07 18:37:28.345 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-06-07 18:37:28.348 +03:00 [DBG] No lines found
+2024-06-07 18:37:28.349 +03:00 [INF] Line with max sum is 0
+2024-06-07 18:37:28.351 +03:00 [INF] Max sum: 0
+2024-06-07 18:37:28.352 +03:00 [INF] Number of non numeric lines is 0
+2024-06-07 18:37:28.353 +03:00 [INF] List of non numeric lines:

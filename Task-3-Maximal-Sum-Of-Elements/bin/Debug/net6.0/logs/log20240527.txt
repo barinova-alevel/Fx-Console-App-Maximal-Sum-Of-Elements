@@ -1,0 +1,4 @@
+2024-05-27 10:18:18.531 +03:00 [INF] start
+2024-05-27 10:18:20.592 +03:00 [DBG] Getting file path from path argument --path=C:\\Temp\\test.xlsx: 
+2024-05-27 10:18:20.615 +03:00 [DBG] File path: C:\\Temp\\test.xlsx
+2024-05-27 10:18:20.618 +03:00 [INF] Reading file from C:\\Temp\\test.xlsx

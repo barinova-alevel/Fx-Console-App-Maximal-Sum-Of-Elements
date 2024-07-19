@@ -1,0 +1,92 @@
+2024-07-04 17:17:41.589 +03:00 [INF] start
+2024-07-04 17:17:44.641 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:17:44.665 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:17:44.684 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-07-04 17:17:44.750 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-07-04 17:17:44.763 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
+2024-07-04 17:17:44.764 +03:00 [INF] Number of non numeric lines is 0
+2024-07-04 17:17:44.766 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:18:44.848 +03:00 [INF] start
+2024-07-04 17:18:47.242 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:18:47.255 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:18:47.267 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-07-04 17:18:47.284 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-07-04 17:18:47.295 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
+2024-07-04 17:18:47.297 +03:00 [INF] Number of non numeric lines is 0
+2024-07-04 17:18:47.299 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:19:30.303 +03:00 [INF] start
+2024-07-04 17:19:44.689 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:19:44.704 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:22:01.525 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-07-04 17:22:01.541 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-07-04 17:22:01.554 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
+2024-07-04 17:22:01.555 +03:00 [INF] Number of non numeric lines is 0
+2024-07-04 17:22:01.556 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:22:09.204 +03:00 [INF] start
+2024-07-04 17:22:20.313 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:22:20.327 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:23:15.094 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-07-04 17:23:15.110 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-07-04 17:23:15.121 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
+2024-07-04 17:23:15.122 +03:00 [INF] Number of non numeric lines is 0
+2024-07-04 17:23:15.123 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:23:55.903 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:23:55.906 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:25:26.655 +03:00 [INF] Failed to read any line from the file. The file is empty.
+2024-07-04 17:25:26.656 +03:00 [DBG]    at MaxSum.FileWrapper.GetAllLines(String filePath) in C:\Users\Oksana\Source\Repos\Task-3-Maximal-Sum-Of-Elements\MaxSum\FileWrapper.cs:line 25
+2024-07-04 17:25:26.665 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
+2024-07-04 17:25:26.666 +03:00 [INF] Number of non numeric lines is 0
+2024-07-04 17:25:26.667 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:26:17.759 +03:00 [INF] start
+2024-07-04 17:26:26.435 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:26:26.448 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:26:26.451 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-07-04 17:26:26.453 +03:00 [DBG] Line 1: non numeric line
+2024-07-04 17:26:26.453 +03:00 [DBG] Line 2: 1,5,1000.3, 7
+2024-07-04 17:26:26.454 +03:00 [DBG] Line 2 is numeric, its sum: 1013.3
+2024-07-04 17:26:26.455 +03:00 [DBG] Line 3: 16, -3
+2024-07-04 17:26:26.457 +03:00 [DBG] Line 3 is numeric, its sum: 13
+2024-07-04 17:26:26.457 +03:00 [DBG] Line 4: jklj
+2024-07-04 17:26:26.458 +03:00 [DBG] Adding line 1 to list of non numeric.
+2024-07-04 17:26:26.459 +03:00 [DBG] Adding line 4 to list of non numeric.
+2024-07-04 17:26:26.460 +03:00 [INF] Line with max sum is 2
+2024-07-04 17:26:26.460 +03:00 [INF] Number of non numeric lines is 2
+2024-07-04 17:26:26.461 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:28:07.637 +03:00 [INF] start
+2024-07-04 17:28:10.159 +03:00 [DBG] Getting file path from path argument --path=C://Temp/test.txt 
+2024-07-04 17:28:10.172 +03:00 [INF] File path: C://Temp/test.txt
+2024-07-04 17:28:10.175 +03:00 [INF] Reading file from C://Temp/test.txt
+2024-07-04 17:28:10.177 +03:00 [DBG] Line 1: non numeric line
+2024-07-04 17:28:10.177 +03:00 [DBG] Line 2: 1,5,1000.3, 7
+2024-07-04 17:28:10.178 +03:00 [DBG] Line 2 is numeric, its sum: 1013.3
+2024-07-04 17:28:10.179 +03:00 [DBG] Line 3: 16, -3
+2024-07-04 17:28:10.180 +03:00 [DBG] Line 3 is numeric, its sum: 13
+2024-07-04 17:28:10.180 +03:00 [DBG] Line 4: jklj
+2024-07-04 17:28:10.181 +03:00 [DBG] Adding line 1 to list of non numeric.
+2024-07-04 17:28:10.182 +03:00 [DBG] Adding line 4 to list of non numeric.
+2024-07-04 17:28:10.182 +03:00 [INF] Line with max sum is 2
+2024-07-04 17:28:10.183 +03:00 [INF] Number of non numeric lines is 2
+2024-07-04 17:28:10.184 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:51:10.421 +03:00 [INF] start
+2024-07-04 17:51:13.017 +03:00 [DBG] Getting file path from path argument null 
+2024-07-04 17:51:13.026 +03:00 [INF] file path argument is null or empty, please enter file path manually:
+2024-07-04 17:51:35.719 +03:00 [DBG] Console file path: c://Temp//Test.txt
+2024-07-04 17:51:35.720 +03:00 [INF] Reading file from c://Temp//Test.txt
+2024-07-04 17:51:35.722 +03:00 [DBG] Line 1: non numeric line
+2024-07-04 17:51:35.722 +03:00 [DBG] Line 2: 1,5,1000.3, 7
+2024-07-04 17:51:35.723 +03:00 [DBG] Line 2 is numeric, its sum: 1013.3
+2024-07-04 17:51:35.724 +03:00 [DBG] Line 3: 16, -3
+2024-07-04 17:51:35.724 +03:00 [DBG] Line 3 is numeric, its sum: 13
+2024-07-04 17:51:35.725 +03:00 [DBG] Line 4: jklj
+2024-07-04 17:51:35.725 +03:00 [DBG] Adding line 1 to list of non numeric.
+2024-07-04 17:51:35.726 +03:00 [DBG] Adding line 4 to list of non numeric.
+2024-07-04 17:51:35.726 +03:00 [INF] Line with max sum is 2
+2024-07-04 17:51:35.727 +03:00 [INF] Number of non numeric lines is 2
+2024-07-04 17:51:35.727 +03:00 [INF] List of non numeric lines:
+2024-07-04 17:52:11.431 +03:00 [DBG] Getting file path from path argument null 
+2024-07-04 17:52:11.432 +03:00 [INF] file path argument is null or empty, please enter file path manually:
+2024-07-04 17:52:22.961 +03:00 [DBG] Console file path: c://Temp/Test.json
+2024-07-04 17:52:22.962 +03:00 [INF] File c://Temp/Test.json does not exist.
+2024-07-04 17:52:22.972 +03:00 [INF] There is no lines to calculate max sum. All lines are non numeric.
+2024-07-04 17:52:22.973 +03:00 [INF] Number of non numeric lines is 0
+2024-07-04 17:52:22.974 +03:00 [INF] List of non numeric lines:

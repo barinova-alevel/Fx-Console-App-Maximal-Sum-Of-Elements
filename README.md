@@ -23,7 +23,7 @@ git push -uf origin main
 ## Integrate with your tools
 
 - [ ] [Set up project integrations](https://git.foxminded.ua/foxstudent105940/Task-3-Maximal-Sum-Of-Elements/-/settings/integrations)
-
+##Updated to push
 ## Collaborate with your team
 
 - [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
