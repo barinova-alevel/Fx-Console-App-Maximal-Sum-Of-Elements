@@ -4,13 +4,21 @@ namespace MaxSumOfElements.BL
 {
     public class FileAnalyzer
     {
-        public List<string> Analyze(string path)
-        {
-            List<string> result = new List<string>();
-            ReadFile rf = new ReadFile();
+        int minIndex = 0;
+        int maxIndex = 0;
+        public string FilePath;
 
-            rf.ReadLines(path);
-            return result;
+        ILineIterator _lineIterator = new LineIterator();
+        ILineAnalyzer _lineAnalyzer = new LineAnalyzer();
+
+        public FileAnalyzer(string filePath)
+        {
+            this.FilePath = filePath;
+        }
+
+        public FileAnalyzeResult Analyze() 
+        { 
+            return new FileAnalyzeResult(0,0, Array.Empty<int>());
         }
     }
 }
