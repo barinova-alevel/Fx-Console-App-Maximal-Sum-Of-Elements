@@ -14,8 +14,9 @@ public class Program
             .CreateLogger();
         Log.Logger.Information("start");
 
-        FileAnalyzer fileAnalyzer = new FileAnalyzer();
-        fileAnalyzer.Analyze("");
+        string path = "";
+        FileAnalyzer fileAnalyzer = new FileAnalyzer(path);
+        fileAnalyzer.Analyze();
 
         Console.ReadKey();
     }

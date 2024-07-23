@@ -3,13 +3,11 @@ namespace MaxSumOfElements.BL
 {
     public class FileAnalyzeResult
     {
-        public int MinIndex;
         public int MaxIndex;
-        public int[] InvalidLines;
+        public List<int> InvalidLines = new List<int>();
 
-        public FileAnalyzeResult(int minIndex, int maxIndex, int[] invalidLines)
+        public FileAnalyzeResult(int maxIndex, List<int> invalidLines)
         {
-            MinIndex = minIndex;
             MaxIndex = maxIndex;   
             InvalidLines = invalidLines;
         }

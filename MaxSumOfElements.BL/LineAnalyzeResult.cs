@@ -5,13 +5,13 @@ namespace MaxSumOfElements.BL
     {
         public bool IsValid;
         public double LineSum;
-        public double Max;
+        public int LineIndex;
 
-        public LineAnalyzeResult(bool isValid, double lineSum, double max)
+        public LineAnalyzeResult(bool isValid, double lineSum, int lineIndex)
         {
             IsValid = isValid;
             LineSum = lineSum;
-            Max = max;
+            LineIndex = lineIndex;
         }
     }
 }
