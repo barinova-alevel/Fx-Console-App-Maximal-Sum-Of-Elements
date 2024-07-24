@@ -4,11 +4,11 @@ namespace MaxSumOfElements.BL
 {
     public class FileAnalyzer
     {
-        public string FilePath;
+        private string _filePath;
 
         public FileAnalyzer(string filePath)
         {
-            this.FilePath = filePath;
+            this._filePath = filePath;
         }
         
         public FileAnalyzeResult Analyze()
@@ -17,7 +17,7 @@ namespace MaxSumOfElements.BL
             int indexOfCurrentLine = 0;
             double maxSum = -1.7976931348623157E+308;
             string line;
-            ILineIterator _lineIterator = new LineIterator(FilePath);
+            ILineIterator _lineIterator = new LineIterator(_filePath);
             ILineAnalyzer _lineAnalyzer = new LineAnalyzer();
             List<int> invalidLines = new List<int>();
 

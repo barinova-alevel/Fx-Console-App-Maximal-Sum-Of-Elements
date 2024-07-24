@@ -61,7 +61,5 @@ namespace MaxSumOfElements.BL
             }
             return true;
         }
-
-
     }
 }
