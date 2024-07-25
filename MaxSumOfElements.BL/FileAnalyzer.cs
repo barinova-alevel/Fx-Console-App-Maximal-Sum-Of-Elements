@@ -15,7 +15,7 @@ namespace MaxSumOfElements.BL
         {
             int maxIndex = 0;
             int indexOfCurrentLine = 0;
-            double maxSum = -1.7976931348623157E+308;
+            double? maxSum = null;
             string line;
             ILineIterator _lineIterator = new LineIterator(_filePath);
             ILineAnalyzer _lineAnalyzer = new LineAnalyzer();
