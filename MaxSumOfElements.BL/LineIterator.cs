@@ -1,16 +1,16 @@
-﻿
+﻿using Serilog;
 
 namespace MaxSumOfElements.BL
 {
-    public  class LineIterator : ILineIterator, IDisposable
+    public class LineIterator : ILineIterator, IDisposable
     {
         private StreamReader _reader;
         private IEnumerator<string> _lineEnumerator;
 
         public LineIterator(string filePath)
         {
-            _reader = new StreamReader(filePath);
-            _lineEnumerator = ReadLines().GetEnumerator();
+                _reader = new StreamReader(filePath);
+                _lineEnumerator = ReadLines().GetEnumerator();
         }
 
         private IEnumerable<string> ReadLines()
