@@ -29,7 +29,12 @@ namespace MaxSumOfElements.BL
                 {
                     if (lineResult.IsValid)
                     {
-                        if (lineResult.LineSum > maxSum)
+                        if (maxSum == null)
+                        {
+                            maxSum = lineResult.LineSum;
+                            maxIndex = lineResult.LineIndex;
+                        }
+                        else if(lineResult.LineSum > maxSum)
                         {
                             maxSum = lineResult.LineSum;
                             maxIndex = lineResult.LineIndex;
