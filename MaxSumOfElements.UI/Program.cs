@@ -18,7 +18,7 @@ public class Program
 
         string filePathArg = args.FirstOrDefault(arg => arg.StartsWith("--path="));
         inputOutput.Run(filePathArg);
-
+        
         Console.ReadKey();
     }
 }

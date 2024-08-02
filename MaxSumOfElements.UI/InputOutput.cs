@@ -25,11 +25,13 @@ namespace MaxSumOfElements.UI
                 else if (userInput == "yes")
                 {
                     string filePath = GetPath(filePathArg);
+
                     FileAnalyzer fileAnalyzer = new FileAnalyzer(filePath);
                     fileAnalyzer.Analyze();
                 }
             }
         }
+
         public string GetPath(string filePathArg)
         {
             string filePath;
@@ -39,7 +41,7 @@ namespace MaxSumOfElements.UI
 
                 if (string.IsNullOrEmpty(filePathArg))
                 {
-                    Log.Information("file path argument is null or empty, please enter file path manually:");
+                    Log.Information("File path argument is null or empty.");
                     string manualFilePath = GetPathFromConsole();
                     return manualFilePath;
                 }
@@ -62,34 +64,37 @@ namespace MaxSumOfElements.UI
 
         private string GetPathFromConsole()
         {
-            string filePath = @"" + Console.ReadLine();
-            Log.Debug("Console file path: {filePath}", filePath);
-            if (IsValidPath(filePath))
-            {
-                return filePath;
-            }
-            else
-            {
-                Log.Information("Invalid path, would you like to try again? (yes/no)");
-                string userInput = Console.ReadLine().ToLower();
+            Log.Information("Enter file path manually:");
 
-                if (userInput == "no")
+            string filePath = @"" + Console.ReadLine();
+            Log.Debug($"Console file path: {filePath}");
+
+            if (!IsValidPath(filePath))
+            {
+                if (TryAgainConsole("Invalid path"))
                 {
-                    Environment.Exit(1);
+                    return GetPathFromConsole();
                 }
-                else 
-                {
-                    Log.Information("Enter path:");
-                    GetPathFromConsole();
-                }
-                return filePath;
+
+                Environment.Exit(1);
             }
+
+            if (!File.Exists(filePath))
+            {
+                if (TryAgainConsole("File does not exist"))
+                {
+                    return GetPathFromConsole();
+                }
+
+                Environment.Exit(1);
+            }
+
+            return filePath;
         }
 
         private bool IsValidPath(string path)
         {
             bool isValid = false;
-
             try
             {
                 isValid = Path.IsPathRooted(path) && !string.IsNullOrWhiteSpace(Path.GetFileName(path));
@@ -100,6 +105,14 @@ namespace MaxSumOfElements.UI
             }
 
             return isValid;
+        }
+
+        private bool TryAgainConsole(string failReason)
+        {
+            Log.Information($"{failReason}, would you like to try again? (yes/no)");
+            string userInput = Console.ReadLine().ToLower();
+
+            return userInput != "no";
         }
     }
 }
