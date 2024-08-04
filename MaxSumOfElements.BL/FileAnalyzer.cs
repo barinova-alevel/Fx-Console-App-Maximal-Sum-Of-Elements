@@ -4,52 +4,59 @@ namespace MaxSumOfElements.BL
 {
     public class FileAnalyzer
     {
-        private string _filePath;
+        public string _filePath { get; }
 
         public FileAnalyzer(string filePath)
         {
             this._filePath = filePath;
         }
-        
-        public FileAnalyzeResult Analyze()
+        public ILineIterator GetIterator()
+        {
+            ILineIterator lineIterator = new LineIterator(_filePath);
+            return lineIterator;
+        }
+
+
+        public FileAnalyzeResult Analyze(ILineIterator lineIterator)
         {
             int maxIndex = 0;
             int indexOfCurrentLine = 0;
             double? maxSum = null;
             string line;
-            ILineIterator _lineIterator = new LineIterator(_filePath);
             ILineAnalyzer _lineAnalyzer = new LineAnalyzer();
             List<int> invalidLines = new List<int>();
 
-            do
+            if (lineIterator != null)
             {
-                line = _lineIterator.GetNextLine();
-                LineAnalyzeResult lineResult = _lineAnalyzer.AnalyzeLine(line, indexOfCurrentLine);
-                if (lineResult != null)
+                do
                 {
-                    if (lineResult.IsValid)
+                    line = lineIterator.GetNextLine();
+                    LineAnalyzeResult lineResult = _lineAnalyzer.AnalyzeLine(line, indexOfCurrentLine);
+                    if (lineResult != null)
                     {
-                        if (maxSum == null)
+                        if (lineResult.IsValid)
                         {
-                            maxSum = lineResult.LineSum;
-                            maxIndex = lineResult.LineIndex;
+                            if (maxSum == null)
+                            {
+                                maxSum = lineResult.LineSum;
+                                maxIndex = lineResult.LineIndex;
+                            }
+                            else if (lineResult.LineSum > maxSum)
+                            {
+                                maxSum = lineResult.LineSum;
+                                maxIndex = lineResult.LineIndex;
+                            }
                         }
-                        else if(lineResult.LineSum > maxSum)
+                        else
                         {
-                            maxSum = lineResult.LineSum;
-                            maxIndex = lineResult.LineIndex;
+                            Log.Information($"Adding line number {lineResult.LineIndex + 1} to non numeric.");
+                            invalidLines.Add(lineResult.LineIndex);
                         }
+                        indexOfCurrentLine++;
                     }
-                    else
-                    {
-                        Log.Information($"Adding line number {lineResult.LineIndex + 1} to non numeric.");
-                        invalidLines.Add(lineResult.LineIndex);
-                    }
-                    indexOfCurrentLine++;
                 }
+                while (line != null);
             }
-            while (line != null);
-
             Log.Information($"Number of line with max sum: {(maxIndex + 1)}");
             return new FileAnalyzeResult(maxIndex, invalidLines);
         }

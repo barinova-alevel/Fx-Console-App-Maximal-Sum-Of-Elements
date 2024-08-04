@@ -27,7 +27,8 @@ namespace MaxSumOfElements.UI
                     string filePath = GetPath(filePathArg);
 
                     FileAnalyzer fileAnalyzer = new FileAnalyzer(filePath);
-                    fileAnalyzer.Analyze();
+                    ILineIterator lineIterator = fileAnalyzer.GetIterator();
+                    fileAnalyzer.Analyze(lineIterator);
                 }
             }
         }
