@@ -16,4 +16,8 @@
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MaxSumOfElements.Exceptions\MaxSumOfElements.Exceptions.csproj" />
+  </ItemGroup>
+
 </Project>

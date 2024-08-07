@@ -1,5 +1,4 @@
-﻿
-namespace MaxSumOfElements.BL
+﻿namespace MaxSumOfElements.BL
 {
     public class LineAnalyzeResult
     {

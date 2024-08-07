@@ -1,5 +1,4 @@
-﻿
-namespace MaxSumOfElements.BL
+﻿namespace MaxSumOfElements.BL
 {
     public class FileAnalyzeResult
     {
@@ -8,7 +7,7 @@ namespace MaxSumOfElements.BL
 
         public FileAnalyzeResult(int maxIndex, List<int> invalidLines)
         {
-            IndexOfLineWithMaxSum = maxIndex;   
+            IndexOfLineWithMaxSum = maxIndex;
             NonNumericLines = invalidLines;
         }
     }
