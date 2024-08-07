@@ -41,7 +41,7 @@ namespace MaxSumOfElements.UnitTests
             expectedListOfNonNumericLines.Add(3);
             expectedListOfNonNumericLines.Add(4);
 
-            var expected = new FileAnalyzeResult(0, expectedListOfNonNumericLines);
+            var expected = new FileAnalyzeResult(-1, expectedListOfNonNumericLines);
 
             //Act
             ILineIterator mockLineIterator = Substitute.For<ILineIterator>();
@@ -65,7 +65,7 @@ namespace MaxSumOfElements.UnitTests
 
             //Act
             ILineIterator mockLineIterator = Substitute.For<ILineIterator>();
-            mockLineIterator.GetNextLine().Returns("1", "10", "3.9", "5", (string)null);
+            mockLineIterator.GetNextLine().Returns("1", "1.7976931348623157E+308", "3.9", "5", (string)null);
             var actual = fileAnalyzer.Analyze(mockLineIterator);
 
             //Assert
