@@ -1,6 +1,6 @@
 ﻿using Serilog;
 using Microsoft.Extensions.Configuration;
-using MaxSumOfElements.BL;
+using MaxSumOfElements.UI;
 public class Program
 {
    public static void Main(string[] args)
@@ -14,10 +14,11 @@ public class Program
             .CreateLogger();
         Log.Logger.Information("start");
 
-        string path = "";
-        FileAnalyzer fileAnalyzer = new FileAnalyzer(path);
-        fileAnalyzer.Analyze();
+        InputOutput inputOutput = new InputOutput();
 
+        string filePathArg = args.FirstOrDefault(arg => arg.StartsWith("--path="));
+        inputOutput.Run(filePathArg);
+        
         Console.ReadKey();
     }
 }

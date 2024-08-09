@@ -1,52 +1,110 @@
-﻿using Serilog;
+﻿using MaxSumOfElements.BL;
+using MaxSumOfElements.Exceptions;
+using Serilog;
 
 namespace MaxSumOfElements.BL
 {
     public class FileAnalyzer
     {
-        private string _filePath;
+        public string _filePath { get; }
+        private ILineIterator _lineIterator;
 
         public FileAnalyzer(string filePath)
         {
             this._filePath = filePath;
         }
-        
-        public FileAnalyzeResult Analyze()
+        public ILineIterator GetIterator()
+        {
+            if (_lineIterator == null)
+            {
+                ILineIterator lineIterator = new LineIterator(_filePath);
+                _lineIterator = lineIterator;
+                return _lineIterator;
+            }
+            else
+            {
+                return _lineIterator;
+            }
+        }
+
+
+        public FileAnalyzeResult Analyze(ILineIterator lineIterator)
         {
             int maxIndex = 0;
             int indexOfCurrentLine = 0;
-            double maxSum = -1.7976931348623157E+308;
+            int counterOfNumericLines = 0;
+            int linesCounter = 0;
+            double? maxSum = null;
             string line;
-            ILineIterator _lineIterator = new LineIterator(_filePath);
             ILineAnalyzer _lineAnalyzer = new LineAnalyzer();
             List<int> invalidLines = new List<int>();
 
-            do
+            try
             {
-                line = _lineIterator.GetNextLine();
-                LineAnalyzeResult lineResult = _lineAnalyzer.AnalyzeLine(line, indexOfCurrentLine);
-                if (lineResult != null)
+                if (lineIterator != null)
                 {
-                    if (lineResult.IsValid)
+                    do
                     {
-                        if (lineResult.LineSum > maxSum)
+                        line = lineIterator.GetNextLine();
+                        if (line != null)
                         {
-                            maxSum = lineResult.LineSum;
-                            maxIndex = lineResult.LineIndex;
+                            linesCounter++;
                         }
-                    }
-                    else
-                    {
-                        Log.Information($"Adding line number {lineResult.LineIndex + 1} to non numeric.");
-                        invalidLines.Add(lineResult.LineIndex);
-                    }
-                    indexOfCurrentLine++;
-                }
-            }
-            while (line != null);
+                        LineAnalyzeResult lineResult = _lineAnalyzer.AnalyzeLine(line, indexOfCurrentLine);
 
-            Log.Information($"Number of line with max sum: {(maxIndex + 1)}");
-            return new FileAnalyzeResult(maxIndex, invalidLines);
+                        if (lineResult != null)
+                        {
+                            if (lineResult.IsValid)
+                            {
+                                if (maxSum == null)
+                                {
+                                    maxSum = lineResult.LineSum;
+                                    maxIndex = lineResult.LineIndex;
+                                }
+                                else if (lineResult.LineSum > maxSum)
+                                {
+                                    maxSum = lineResult.LineSum;
+                                    maxIndex = lineResult.LineIndex;
+                                }
+                                counterOfNumericLines++;
+                            }
+                            else
+                            {
+                                Log.Information($"Adding line number {lineResult.LineIndex + 1} to non numeric.");
+                                invalidLines.Add(lineResult.LineIndex);
+                            }
+                            indexOfCurrentLine++;
+                        }
+
+                    }
+                    while (line != null);
+                }
+
+                if (counterOfNumericLines == 0 && linesCounter != 0)
+                {
+                    throw new AllLinesNonNumericException("All lines are non numeric.");
+                }
+                else if (linesCounter == 0)
+                {
+                    throw new EmptyFileException("There is no lines to calculate max sum.");
+                }
+                else
+                {
+                    Log.Information($"Number of line with max sum: {(maxIndex + 1)}");
+                    return new FileAnalyzeResult(maxIndex, invalidLines);
+                }
+
+            }
+            catch (AllLinesNonNumericException ex)
+            {
+                Log.Information($"There is no lines to calculate max sum. {ex.Message}");
+                return new FileAnalyzeResult(-1, invalidLines);
+            }
+            catch (EmptyFileException ex)
+            {
+                Log.Information($"{ex.Message}");
+                return new FileAnalyzeResult(-1, invalidLines);
+            }
         }
     }
 }

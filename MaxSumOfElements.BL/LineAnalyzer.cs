@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using MaxSumOfElements.BL;
+using Serilog;
 using System.Globalization;
 
 namespace MaxSumOfElements.BL

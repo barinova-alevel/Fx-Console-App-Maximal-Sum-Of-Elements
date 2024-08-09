@@ -1,4 +1,6 @@
 ﻿
+using MaxSumOfElements.BL;
+
 namespace MaxSumOfElements.BL
 {
     public interface ILineAnalyzer
