@@ -18,7 +18,8 @@ namespace MaxSumOfElements.BL
             if (_lineIterator == null)
             {
                 ILineIterator lineIterator = new LineIterator(_filePath);
-                return lineIterator;
+                _lineIterator = lineIterator;
+                return _lineIterator;
             }
             else
             {
