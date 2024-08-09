@@ -32,6 +32,7 @@ namespace MaxSumOfElements.BL
             int maxIndex = 0;
             int indexOfCurrentLine = 0;
             int counterOfNumericLines = 0;
+            int linesCounter = 0;
             double? maxSum = null;
             string line;
             ILineAnalyzer _lineAnalyzer = new LineAnalyzer();
@@ -44,7 +45,12 @@ namespace MaxSumOfElements.BL
                     do
                     {
                         line = lineIterator.GetNextLine();
+                        if (line != null)
+                        {
+                            linesCounter++;
+                        }
                         LineAnalyzeResult lineResult = _lineAnalyzer.AnalyzeLine(line, indexOfCurrentLine);
+
                         if (lineResult != null)
                         {
                             if (lineResult.IsValid)
@@ -68,23 +74,34 @@ namespace MaxSumOfElements.BL
                             }
                             indexOfCurrentLine++;
                         }
+
                     }
                     while (line != null);
-
                 }
-                if (counterOfNumericLines == 0)
+
+                if (counterOfNumericLines == 0 && linesCounter != 0)
                 {
                     throw new AllLinesNonNumericException("All lines are non numeric.");
+                }
+                else if (linesCounter == 0)
+                {
+                    throw new EmptyFileException("There is no lines to calculate max sum.");
                 }
                 else
                 {
                     Log.Information($"Number of line with max sum: {(maxIndex + 1)}");
                     return new FileAnalyzeResult(maxIndex, invalidLines);
                 }
+
             }
             catch (AllLinesNonNumericException ex)
             {
                 Log.Information($"There is no lines to calculate max sum. {ex.Message}");
+                return new FileAnalyzeResult(-1, invalidLines);
+            }
+            catch (EmptyFileException ex)
+            {
+                Log.Information($"{ex.Message}");
                 return new FileAnalyzeResult(-1, invalidLines);
             }
         }
