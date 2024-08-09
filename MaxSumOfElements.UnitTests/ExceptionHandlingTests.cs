@@ -1,12 +1,9 @@
 ﻿using MaxSumOfElements.BL;
 using MaxSumOfElements.Exceptions;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
+using NSubstitute.ReturnsExtensions;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaxSumOfElements.UnitTests
 {
@@ -35,7 +32,26 @@ namespace MaxSumOfElements.UnitTests
             //Assert
             Assert.That(actual.IndexOfLineWithMaxSum, Is.EqualTo(expected.IndexOfLineWithMaxSum));
             Assert.That(actual.NonNumericLines, Is.EqualTo(expected.NonNumericLines));
-            
+        }
+
+        [Test]
+        public void EmptyFileTest()
+        {
+            //Arrange
+            string filePath = "C:\\Temp\\testPath.txt";
+            FileAnalyzer fileAnalyzer = new FileAnalyzer(filePath);
+            List<int> expectedListOfNonNumericLines = new List<int>();
+
+            var expected = new FileAnalyzeResult(-1, expectedListOfNonNumericLines);
+
+            //Act
+            ILineIterator mockLineIterator = Substitute.For<ILineIterator>();
+            mockLineIterator.GetNextLine().ReturnsNull();
+            var actual = fileAnalyzer.Analyze(mockLineIterator);
+
+            //Assert
+            Assert.That(actual.IndexOfLineWithMaxSum, Is.EqualTo(expected.IndexOfLineWithMaxSum));
+            Assert.That(actual.NonNumericLines, Is.EqualTo(expected.NonNumericLines));
         }
     }
 }
